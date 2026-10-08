@@ -9,6 +9,9 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#FFC20E">
+<!-- ▼ Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com → Admin → Data Streams ▼ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{send_page_view:true});</script>
 </head>
 <body>
 <title>Naija Type</title>
@@ -654,6 +657,7 @@ const Sound = (() => {
   };
 })();
 function buzz(ms){ try { if (navigator.vibrate) navigator.vibrate(ms); } catch(e){} }
+function track(n, p){ try{ if(typeof gtag==='function') gtag('event', n, p||{}); }catch(e){} }
 
 /* ---------- UI ---------- */
 const $ = s => document.querySelector(s);
@@ -730,6 +734,7 @@ function pick(i){
   if (locked) return;
   locked = true; answers[qi] = i;
   Sound.play('pick'); buzz(12);
+  track('answer_picked', {question_number: qi + 1, stop: STOPS[qi], answer: QUESTIONS[qi].o[i].t.slice(0,80)});
   document.querySelectorAll('.opt').forEach((b, j) => b.classList.toggle('picked', j === i));
   setTimeout(() => {
     locked = false;
@@ -739,12 +744,14 @@ function pick(i){
 
 function startQuiz(){
   answers = []; qi = 0; locked = false;
+  track('quiz_start');
   show('s-quiz'); renderQuestion();
 }
 
 async function finish(){
   show('s-load');
   const res = score(answers);
+  track('quiz_complete', {result_type: res.key, match_percent: res.match});
   const minWait = new Promise(r => setTimeout(r, reduced ? 300 : 1500));
   await fontsReady; await minWait;
   const h = encode(res); store('own', h); setHash(h);
@@ -808,6 +815,7 @@ async function showFriend(r){
   $('#f-lede').textContent = `${r.match}% match. "${t.slogan}" Answer 10 questions and see whether you better pass am.`;
   $('#types-title').textContent = 'All 10 Naija Types';
   renderTypes(r.key, 'YOUR PADI');
+  track('friend_result_viewed', {result_type: r.key, match_percent: r.match});
   show('s-friend');
 }
 
@@ -826,7 +834,7 @@ async function saveCard(){
   const blob = await new Promise(r => cardCanvas.toBlob(r, 'image/png'));
   if (!blob) { toast('Long-press the card to save am.'); return; }
   if (downloads){
-    try { await downloads.save({filename:name, data:blob}); Sound.play('success'); toast('Card don save. Go post am.'); }
+    try { await downloads.save({filename:name, data:blob}); Sound.play('success'); track('card_saved', {type: current.key}); toast('Card don save. Go post am.'); }
     catch(e){
       if (e && e.code === 'declined') return;
       toast(e && e.code === 'rate_limited' ? 'Wait small, then try again.' : 'Save no work here. Long-press the card to save am.');
@@ -850,7 +858,7 @@ async function saveCard(){
 async function copyLink(){
   if (!current) return;
   const url = shareUrl(current) || shareText(current);
-  try { await navigator.clipboard.writeText(url); Sound.play('success'); toast('Link don copy. Go paste am for group chat.'); }
+  try { await navigator.clipboard.writeText(url); Sound.play('success'); track('link_copied', {type: current?.key}); toast('Link don copy. Go paste am for group chat.'); }
   catch(e){
     const box = $('#linkbox'); box.value = url; box.hidden = false; box.focus(); box.select();
     toast('Copy no work here. The link dey the box. Select am and copy.');
@@ -879,6 +887,10 @@ function renderSound(){
 }
 $('#sound').addEventListener('click', () => { Sound.set(!Sound.on); renderSound(); Sound.play('tap'); });
 document.addEventListener('click', e => { const b = e.target.closest('[data-sfx]'); if (b) Sound.play(b.dataset.sfx); });
+document.addEventListener('click', e => {
+  if (e.target.closest('#share-x')) track('result_shared_x', {result_type: current?.key});
+  if (e.target.closest('#share-wa')) track('result_shared_whatsapp', {result_type: current?.key});
+});
 renderSound();
 buildStatic();
 (function boot(){
