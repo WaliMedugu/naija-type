@@ -1,0 +1,877 @@
+<title>Naija Type</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Schibsted+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap">
+<style>
+/* Layout: one screen at a time on a danfo-yellow ground; hand-painted bus-signage type; the result is a 4:5 card built like the side of a danfo */
+:root{
+  --danfo:#FFC20E;
+  --ink:#151310;
+  --paper:#FFFAE6;
+  --road:#3A3630;
+  --flag:#008751;
+  --wahala:#D93A22;
+  --display:"Bungee","Arial Black",Impact,sans-serif;
+  --body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--danfo);color:var(--ink)}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.stripes{height:22px;background:linear-gradient(var(--ink) 0 7px,transparent 7px 12px,var(--ink) 12px 17px,transparent 17px)}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,32px);padding-block:0 40px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:16px}
+.plate{font-family:var(--display);font-size:18px;background:var(--ink);color:var(--danfo);padding:7px 12px 5px;border-radius:7px;letter-spacing:.02em;border:0;cursor:pointer;line-height:1.1}
+.top-right{display:flex;align-items:center;gap:14px}
+.sound-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:6px 12px;font:800 14px var(--body);background:var(--paper);border:3px solid var(--ink);border-radius:999px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+.sound-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.sound-btn svg{width:20px;height:20px}
+.sound-btn .cross{display:none}
+.sound-btn[aria-pressed="false"] .cross{display:inline}
+.sound-btn[aria-pressed="false"] .wave{display:none}
+.top-note{font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 22px;font:800 18px/1.1 var(--body);border:3px solid var(--ink);border-radius:12px;background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer;text-decoration:none;transition:transform .08s ease,box-shadow .08s ease;text-align:center}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn-primary{background:var(--ink);color:var(--danfo);box-shadow:4px 4px 0 var(--flag)}
+.btn-primary:hover{box-shadow:5px 5px 0 var(--flag)}
+.btn-primary:active{box-shadow:1px 1px 0 var(--flag)}
+.btn-wa{background:#25D366}
+.btn-big{min-height:64px;font-size:21px;padding-inline:30px}
+.btn svg{width:22px;height:22px;flex:none}
+.link-btn{background:none;border:0;padding:8px 2px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,56px);align-items:center;padding-block:clamp(16px,4vw,48px) 36px}
+.eyebrow{font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8.4vw,94px);line-height:.94;margin:0;text-wrap:balance}
+h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lede{font-size:clamp(18px,2.1vw,21px);max-width:36ch;margin:22px 0 28px}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding:0;list-style:none}
+.facts li{font-weight:700;font-size:14px;border:2px solid var(--ink);border-radius:999px;padding:5px 12px;background:rgba(255,255,255,.35)}
+
+.fan{position:relative;height:440px}
+.mini{position:absolute;width:250px;aspect-ratio:4/5;border:3px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);padding:18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.mini .no{font-weight:800;font-size:13px;letter-spacing:.1em}
+.mini .nm{font-family:var(--display);font-size:27px;line-height:1;margin:0;text-wrap:balance}
+.mini .sg{font-weight:800;font-style:italic;font-size:14px;line-height:1.25;padding:9px 11px;border-radius:4px;transform:rotate(-1.5deg)}
+.fan .mini:nth-child(1){left:2%;top:40px;transform:rotate(-9deg)}
+.fan .mini:nth-child(2){left:24%;top:4px;transform:rotate(2deg);z-index:2}
+.fan .mini:nth-child(3){left:46%;top:56px;transform:rotate(10deg)}
+
+.marquee{background:var(--ink);color:var(--danfo);overflow:hidden;white-space:nowrap;font-family:var(--display);font-size:19px;padding-block:13px 11px}
+.marquee-in{display:inline-block;animation:roll 48s linear infinite}
+.marquee span{padding-inline:22px}
+.marquee span::after{content:"";display:inline-block;width:9px;height:9px;background:var(--danfo);border-radius:50%;margin-left:44px;vertical-align:middle;transform:translateY(-2px)}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-block:40px 8px}
+.how div{border-top:4px solid var(--ink);padding-top:12px}
+.how b{display:block;font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:6px}
+.how p{margin:0;max-width:30ch}
+
+/* ---------- quiz ---------- */
+.quiz{max-width:700px;margin:0 auto;padding-block:8px 32px}
+.route{position:relative;height:50px;margin:6px 6px 22px}
+.road{position:absolute;left:0;right:0;top:36px;height:6px;background:var(--ink);border-radius:3px}
+.stop{position:absolute;top:31px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--danfo);border:3px solid var(--ink)}
+.stop.done{background:var(--ink)}
+.bus{position:absolute;top:0;width:58px;margin-left:-29px;transition:left .45s cubic-bezier(.3,1.4,.5,1)}
+.bus svg{display:block;width:58px;height:34px}
+.q-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.q-stop{font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.q-shout{font-weight:700;font-style:italic;font-size:15px;margin:0;opacity:.85}
+.q-text{font-family:var(--display);font-weight:400;font-size:clamp(30px,6vw,46px);line-height:1.02;margin:14px 0 24px;text-wrap:balance;outline:none}
+.opts{display:grid;gap:10px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:12px 18px 12px 14px;text-align:left;font-weight:600;font-size:19px;line-height:1.3;background:var(--paper);border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .08s ease,box-shadow .08s ease,background .15s ease}
+.opt:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.opt:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.opt .key{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:3px solid var(--ink);font-family:var(--display);font-size:16px;padding-top:2px}
+.opt.picked{background:var(--ink);color:var(--danfo)}
+.opt.picked .key{background:var(--danfo);color:var(--ink);border-color:var(--danfo)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:12px}
+.kbd-tip{font-size:14px;opacity:.75}
+.enter{animation:enter .32s ease both}
+@keyframes enter{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+
+/* ---------- loading ---------- */
+.loading{min-height:60vh;display:grid;place-content:center;text-align:center;gap:22px;padding-block:40px}
+.loading h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1;margin:0;text-wrap:balance}
+.loading p{margin:0;font-weight:700}
+.dots{display:flex;gap:12px;justify-content:center}
+.dots i{width:16px;height:16px;border-radius:50%;background:var(--ink);animation:hop .8s ease-in-out infinite}
+.dots i:nth-child(2){animation-delay:.12s}.dots i:nth-child(3){animation-delay:.24s}
+@keyframes hop{50%{transform:translateY(-14px)}}
+
+/* ---------- result ---------- */
+.result{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:start;padding-block:16px 8px}
+.shot{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.shot img{display:block;width:100%;aspect-ratio:4/5;border:3px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink);background:var(--paper)}
+.shot img.slap{animation:slap .55s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes slap{0%{opacity:0;transform:scale(1.18) rotate(-7deg)}60%{opacity:1;transform:scale(.97) rotate(1deg)}100%{transform:none}}
+.shot .hint{font-size:14px;font-weight:600;text-align:center;margin:16px 0 0;opacity:.8}
+.r-name{font-family:var(--display);font-weight:400;font-size:clamp(36px,6vw,60px);line-height:.98;margin:0;text-wrap:balance}
+.r-match{display:inline-block;margin-top:14px;background:var(--ink);color:var(--danfo);font-weight:800;font-size:14px;letter-spacing:.08em;padding:6px 11px 5px;border-radius:6px}
+.r-slogan{font-weight:800;font-style:italic;font-size:clamp(20px,2.6vw,25px);line-height:1.25;margin:18px 0 10px;max-width:30ch}
+.r-desc{margin:0 0 26px;max-width:52ch;font-size:18px}
+.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.actions .btn{width:100%}
+.linkbox{width:100%;margin-top:12px;padding:12px;border:3px solid var(--ink);border-radius:10px;font:600 15px var(--body);background:var(--paper);color:var(--ink)}
+.block-title{font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:36px 0 14px}
+.meters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px;margin:0;padding:0;list-style:none}
+.meter .row{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:6px}
+.meter .row span:last-child{font-variant-numeric:tabular-nums}
+.bar{height:16px;border:3px solid var(--ink);border-radius:4px;background:var(--paper);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pair div{border:3px solid var(--ink);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.3)}
+.pair small{display:block;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.pair b{display:block;font-family:var(--display);font-weight:400;font-size:20px;line-height:1.05;margin-top:6px}
+.pair p{margin:8px 0 0;font-size:15px}
+.again{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+.types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding:0;margin:0;list-style:none}
+.types .mini{position:relative;width:auto;box-shadow:4px 4px 0 var(--ink);padding:14px}
+.types .mini .nm{font-size:clamp(17px,1.8vw,21px)}
+.types .mini .sg{font-size:12.5px;padding:7px 8px}
+.types .mini.you{outline:4px solid var(--ink);outline-offset:4px}
+.you-tag{position:absolute;top:10px;right:10px;font-weight:800;font-size:11px;letter-spacing:.1em;padding:3px 7px;border-radius:4px}
+
+/* ---------- friend ---------- */
+.friend{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,5vw,56px);align-items:center;padding-block:clamp(16px,4vw,40px)}
+.friend h1{font-size:clamp(40px,7vw,78px)}
+.friend .shot{position:static}
+
+.foot{border-top:3px solid var(--ink);margin-top:48px;padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;font-weight:600}
+.foot p{margin:0}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;pointer-events:none;background:var(--ink);color:var(--danfo);font-weight:700;padding:13px 18px;border-radius:10px;max-width:min(92vw,440px);text-align:center;transition:opacity .2s ease,transform .2s ease;z-index:10}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:900px){
+  .types{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:820px){
+  .hero,.result,.friend{grid-template-columns:minmax(0,1fr)}
+  .fan{height:330px;max-width:420px;width:100%;margin-inline:auto}
+  .fan .mini{width:190px}
+  .fan .mini .nm{font-size:21px}
+  .fan .mini .sg{font-size:12px}
+  .shot{position:static;max-width:440px;width:100%;margin-inline:auto}
+  .friend .shot{order:2}
+  .how{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:480px){
+  .fan{height:290px}
+  .fan .mini{width:165px;padding:14px}
+  .fan .mini .nm{font-size:18px}
+  .fan .mini:nth-child(2){left:26%}
+  .fan .mini:nth-child(3){left:47%}
+  .meters,.pair{grid-template-columns:minmax(0,1fr)}
+  .actions .btn{font-size:16px;padding-inline:12px}
+  .opt{font-size:17px}
+  .top-note{display:none}
+  .sound-btn span{display:none}
+  .sound-btn{padding:6px 9px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+
+<div class="stripes" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="top">
+    <button class="plate" id="logo" type="button" data-sfx="tap" aria-label="Naija Type home">NAIJA TYPE</button>
+    <div class="top-right">
+      <span class="top-note">10 types · 1 card · plenty wahala</span>
+      <button class="sound-btn" id="sound" type="button" aria-pressed="true" aria-label="Sound">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="cross" d="M16 9l6 6M22 9l-6 6"/></svg>
+        <span id="sound-label">Sound on</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <section class="screen" id="s-home">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">The Naija personality test</p>
+        <h1>Wetin be your <span class="hl">Naija Type?</span></h1>
+        <p class="lede">Answer 10 questions about your real life. Get your type, your stats and a card wey go scatter your group chat.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary btn-big" id="start" type="button" data-sfx="horn">Start am
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="link-btn" id="peek" type="button" data-sfx="tap">See all 10 types</button>
+        </div>
+        <ul class="facts">
+          <li>60 seconds</li><li>No login</li><li>We no dey store your answers</li>
+        </ul>
+      </div>
+      <div class="fan" id="fan" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen" id="s-quiz" hidden>
+    <div class="quiz">
+      <div class="route" id="route" aria-hidden="true">
+        <div class="road"></div>
+        <div class="bus" id="bus">
+          <svg viewBox="0 0 58 34" aria-hidden="true">
+            <rect x="2" y="3" width="54" height="23" rx="5" fill="#FFC20E" stroke="#151310" stroke-width="3"/>
+            <rect x="7" y="7" width="10" height="7" rx="1.5" fill="#151310"/>
+            <rect x="20" y="7" width="10" height="7" rx="1.5" fill="#151310"/>
+            <rect x="33" y="7" width="10" height="7" rx="1.5" fill="#151310"/>
+            <path d="M46 7h5.5a2 2 0 0 1 2 2v5H46z" fill="#151310"/>
+            <rect x="3.5" y="17" width="51" height="2.6" fill="#151310"/>
+            <rect x="3.5" y="21" width="51" height="2.6" fill="#151310"/>
+            <circle cx="14" cy="27" r="5" fill="#151310"/><circle cx="14" cy="27" r="1.8" fill="#FFC20E"/>
+            <circle cx="44" cy="27" r="5" fill="#151310"/><circle cx="44" cy="27" r="1.8" fill="#FFC20E"/>
+          </svg>
+        </div>
+      </div>
+      <div id="q-body">
+        <div class="q-meta">
+          <p class="q-stop" id="q-stop"></p>
+          <p class="q-shout" id="q-shout"></p>
+        </div>
+        <h2 class="q-text" id="q-text" tabindex="-1" aria-live="polite"></h2>
+        <div class="opts" id="q-opts"></div>
+      </div>
+      <div class="q-foot">
+        <button class="link-btn" id="back" type="button" data-sfx="back">← Back</button>
+        <span class="kbd-tip" id="kbd-tip">Tip: press A to E</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOADING -->
+  <section class="screen" id="s-load" hidden>
+    <div class="loading" role="status">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h2>Conductor dey count your change…</h2>
+      <p>Your card dey come.</p>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen" id="s-result" hidden>
+    <div class="result">
+      <div class="shot">
+        <img id="r-img" alt="">
+        <p class="hint">On phone? Long-press the card to save am.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Your Naija Type</p>
+        <h2 class="r-name" id="r-name"></h2>
+        <span class="r-match" id="r-match"></span>
+        <p class="r-slogan" id="r-slogan"></p>
+        <p class="r-desc" id="r-desc"></p>
+
+        <div class="actions">
+          <a class="btn btn-wa" id="share-wa" data-sfx="tap" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+            Share for WhatsApp
+          </a>
+          <a class="btn" id="share-x" data-sfx="tap" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>
+            Post am for X
+          </a>
+          <button class="btn" id="save" type="button" data-sfx="tap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+            Save card
+          </button>
+          <button class="btn" id="copy" type="button" data-sfx="tap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+            Copy link
+          </button>
+        </div>
+        <input class="linkbox" id="linkbox" readonly hidden aria-label="Link to your result">
+
+        <p class="block-title">Your stats</p>
+        <ul class="meters" id="r-meters"></ul>
+
+        <p class="block-title">Who you go jam</p>
+        <div class="pair">
+          <div><small>Your padi</small><b id="r-padi"></b><p id="r-padi-note"></p></div>
+          <div><small>Your wahala</small><b id="r-wahala"></b><p id="r-wahala-note"></p></div>
+        </div>
+
+        <div class="again">
+          <button class="btn" id="retake" type="button" data-sfx="horn">Retake am</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRIEND (arrived from a shared link) -->
+  <section class="screen" id="s-friend" hidden>
+    <div class="friend">
+      <div>
+        <p class="eyebrow">Your padi don take the test</p>
+        <h1 id="f-title"></h1>
+        <p class="lede" id="f-lede"></p>
+        <div class="cta-row">
+          <button class="btn btn-primary btn-big" id="f-start" type="button" data-sfx="horn">Find my own type</button>
+        </div>
+      </div>
+      <div class="shot"><img id="f-img" alt=""></div>
+    </div>
+  </section>
+
+  <section id="all-types" hidden>
+    <p class="block-title" id="types-title">All 10 Naija Types</p>
+    <ul class="types" id="types"></ul>
+  </section>
+
+  <footer class="foot">
+    <p>Made for Naija, with love and small wahala.</p>
+    <p>Your answers stay for your phone. Nothing dey saved.</p>
+  </footer>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-in" id="marquee"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// Set this to your domain once you host it (e.g. "naijatype.ng"). It prints on every card.
+const SITE_LABEL = '';
+
+const TYPES = {
+  lekki:{no:1,name:'The Lekki Soft Life',card:'LEKKI SOFT LIFE',bg:'#FF9EC2',ink:'#2B0718',sig:'soft',padi:'abuja',wahala:'sapa',
+    slogan:'Soft life na my birthright. Sapa na rumour.',
+    desc:'You no dey enter danfo, you no dey do noise and you no dey "manage". Your account balance na private matter. Your outfits na public property.'},
+  mainland:{no:2,name:'The Mainland Hustler',card:'MAINLAND HUSTLER',bg:'#FFC20E',ink:'#151310',sig:'hustle',padi:'sapa',wahala:'lekki',
+    slogan:'Danfo or nothing. No dulling.',
+    desc:'You wake before the sun and you sabi three shortcuts to every bus stop. Lagos try break you. Now Lagos na your padi.'},
+  techbro:{no:3,name:'The Tech Bro',card:'TECH BRO',bg:'#3E6CFF',ink:'#F4F6FF',sig:'hustle',padi:'japa',wahala:'aunty',
+    slogan:'Dollar don land. Life don make sense.',
+    desc:'Your standup na 3pm because your manager dey California. You talk "let’s circle back" for owambe and nobody understand you.'},
+  japa:{no:4,name:'The Japa Gang',card:'JAPA GANG',bg:'#0B6B4A',ink:'#F3ECD2',sig:'japa',padi:'techbro',wahala:'prayer',
+    slogan:'Abroad dey call. I don pick.',
+    desc:'Your passport don renew, your IELTS don book and your goodbye tweet dey drafts. You love Naija well well. From a safe distance.'},
+  philosopher:{no:5,name:'The Street Philosopher',card:'STREET PHILOSOPHER',bg:'#22307E',ink:'#F8E7B0',sig:'amebo',padi:'corper',wahala:'abuja',
+    slogan:'I sabi everything except my account balance.',
+    desc:'You get thread for every topic and theory for every scandal. Your take correct. Your data don finish.'},
+  abuja:{no:6,name:'The Abuja Connector',card:'ABUJA CONNECTOR',bg:'#7C1735',ink:'#F5C95C',sig:'soft',padi:'lekki',wahala:'philosopher',
+    slogan:'My uncle sabi person wey sabi person.',
+    desc:'You no dey queue. You dey call somebody. Every problem for Naija get phone number, and you don save am.'},
+  prayer:{no:7,name:'The Prayer Warrior',card:'PRAYER WARRIOR',bg:'#F6F3EA',ink:'#1A3FA0',sig:'prayer',padi:'aunty',wahala:'japa',
+    slogan:'God’s time na the best time.',
+    desc:'Your alarm dey set for vigil and your data dey run on faith. Every problem get the same answer: "We go pray about am."'},
+  sapa:{no:8,name:'The Sapa Survivor',card:'SAPA SURVIVOR',bg:'#F2692B',ink:'#1C0D05',sig:'sapa',padi:'mainland',wahala:'lekki',
+    slogan:'Broke but blessed. Mostly broke.',
+    desc:'You fit turn ₦2,000 into one full week of food. Economists suppose study you. Your bank suppose apologise.'},
+  corper:{no:9,name:'The Fresh Corper',card:'FRESH CORPER',bg:'#CDB57D',ink:'#0F3D1E',sig:'sapa',padi:'philosopher',wahala:'aunty',
+    slogan:'Degree for hand. Reality for face.',
+    desc:'You get certificate, khaki and big dreams. Your allawee dey finish before the month start, but your LinkedIn dey shine.'},
+  aunty:{no:10,name:'The Naija Aunty',card:'NAIJA AUNTY',bg:'#5B2A9A',ink:'#FFD23F',sig:'amebo',padi:'prayer',wahala:'corper',
+    slogan:'Have you eaten? When are you marrying?',
+    desc:'You carry cooler of jollof go every function and opinion go every life decision. Everybody fear your questions. Everybody chop your food.'}
+};
+const ORDER = Object.keys(TYPES);
+const TRAITS = [['hustle','Hustle'],['soft','Soft life'],['japa','Japa readiness'],['amebo','Amebo level'],['prayer','Prayer power'],['sapa','Sapa exposure']];
+const STOPS = ['Ojota','Maryland','Anthony','Obanikoro','Palmgrove','Onipanu','Fadeyi','Jibowu','Yaba','Obalende'];
+const SHOUTS = ['"Enter with your change o!"','"Maryland! Maryland!"','"Shift, shift, make we enter!"','"Who never pay?"','"No dey look me like that."','"Hold body!"','"Owner of this change!"','"Na one way!"','"Oya, almost there!"','"Obalende! Last stop!"'];
+
+const QUESTIONS = [
+  {q:'Na Friday night. Where you dey?',o:[
+    {t:'Lounge with my people. Outfit don set.',a:{lekki:3,abuja:1},s:{soft:14,amebo:4}},
+    {t:'Owambe. I no even know the celebrant.',a:{aunty:2,mainland:2,sapa:1},s:{amebo:12,hustle:4}},
+    {t:'Laptop open. Deadline no dey sleep.',a:{techbro:3,mainland:1},s:{hustle:12}},
+    {t:'Vigil or night prayer. Fire for fire.',a:{prayer:3,aunty:1},s:{prayer:18}},
+    {t:'Inside house. Data dey, food dey, peace dey.',a:{corper:2,sapa:1,japa:1},s:{sapa:6}}]},
+  {q:'How money dey take enter your hand?',o:[
+    {t:'Salary, plus small side hustle wey nobody know.',a:{mainland:3,aunty:1},s:{hustle:14}},
+    {t:'Remote job. I dey earn for dollar.',a:{techbro:3,lekki:1},s:{soft:8,hustle:4}},
+    {t:'Connection. Na who you know.',a:{abuja:3,lekki:1},s:{soft:6,amebo:6}},
+    {t:'Money? I still dey wait for alert.',a:{sapa:3,corper:2,philosopher:1},s:{sapa:18,prayer:4}},
+    {t:'I dey work abroad. Rent and tax dey chop am.',a:{japa:3,techbro:1},s:{japa:16,hustle:6}}]},
+  {q:'How you dey take move around?',o:[
+    {t:'My own motor. AC must blow.',a:{lekki:2,abuja:2,aunty:1},s:{soft:10}},
+    {t:'Bolt or Uber. Public transport na for emergency.',a:{techbro:2,lekki:1,corper:1},s:{soft:6}},
+    {t:'Danfo, keke, okada. Whichever come first.',a:{mainland:3,sapa:2,philosopher:1},s:{hustle:10,sapa:8}},
+    {t:'Train and bus abroad. Na the cold dey worry me.',a:{japa:3},s:{japa:20}},
+    {t:'Trekking. I call am free exercise.',a:{sapa:2,corper:2,philosopher:1},s:{sapa:12}}]},
+  {q:'Light don go for night. Wetin you do?',o:[
+    {t:'Solar don carry am. I no even notice.',a:{techbro:2,lekki:2,abuja:1},s:{soft:10}},
+    {t:'Open X. Write long thread about this country.',a:{philosopher:3,japa:1},s:{amebo:10,japa:6}},
+    {t:'Pull gen. Fuel money don finish me.',a:{mainland:2,aunty:2,sapa:1},s:{hustle:6,sapa:8}},
+    {t:'Sleep. Light go come when e wan come.',a:{corper:2,sapa:2,prayer:1},s:{sapa:8,prayer:6}},
+    {t:'Light no dey go where I dey. I dey pray for una.',a:{japa:3,prayer:1},s:{japa:14,prayer:4}}]},
+  {q:'Which food fit make you forgive person?',o:[
+    {t:'Party jollof with big turkey.',a:{aunty:2,corper:2,mainland:1},s:{amebo:4}},
+    {t:'Brunch. Pancakes and mimosa.',a:{lekki:3,techbro:1},s:{soft:14}},
+    {t:'Suya and pepper soup with the oga dem.',a:{abuja:3,philosopher:1},s:{amebo:6}},
+    {t:'Indomie and egg. Na God dey keep me.',a:{sapa:3,corper:1},s:{sapa:14,prayer:4}},
+    {t:'Swallow and soup from home. I fit cry.',a:{japa:2,mainland:1,aunty:1},s:{japa:8}}]},
+  {q:'Person ask you "How work?" You go talk:',o:[
+    {t:'We move! No dulling.',a:{mainland:3,corper:1},s:{hustle:16}},
+    {t:'God dey. Na Him dey run am.',a:{prayer:3,aunty:1},s:{prayer:16}},
+    {t:'Dollar dey land. I no fit complain.',a:{techbro:3},s:{soft:6,hustle:4}},
+    {t:'I dey plan my next move. Abroad or bigger job.',a:{japa:3,philosopher:1},s:{japa:20}},
+    {t:'We dey manage am like that.',a:{sapa:3,corper:1},s:{sapa:10,prayer:4}}]},
+  {q:'Wetin be your WhatsApp DP?',o:[
+    {t:'Studio shoot. Ring light and everything.',a:{lekki:2,abuja:1},s:{soft:10}},
+    {t:'Scripture quote on purple background.',a:{prayer:3,aunty:1},s:{prayer:14}},
+    {t:'Me for front of foreign airport.',a:{japa:2,techbro:1},s:{japa:14}},
+    {t:'Black and white picture of me dey think.',a:{philosopher:3,corper:1},s:{amebo:4}},
+    {t:'Picture of my pikin or the whole family.',a:{aunty:3,prayer:1},s:{amebo:6}}]},
+  {q:'Your life goal for one line?',o:[
+    {t:'Land, house and G-Wagon for compound.',a:{lekki:2,abuja:2},s:{soft:10}},
+    {t:'Get citizenship. Come home only for December.',a:{japa:3},s:{japa:22}},
+    {t:'Build something wey go outlive me.',a:{techbro:2,philosopher:2,mainland:1},s:{hustle:12}},
+    {t:'First job. Any job. Abeg.',a:{corper:3,sapa:2},s:{sapa:12,hustle:4}},
+    {t:'See my children settle well.',a:{aunty:3,prayer:1},s:{prayer:6}}]},
+  {q:'For family WhatsApp group, who you be?',o:[
+    {t:'I dey post "Good morning" and forwarded messages.',a:{aunty:3,prayer:2},s:{prayer:8,amebo:10}},
+    {t:'I dey read everything. I no dey reply.',a:{japa:1,corper:2,lekki:1},s:{amebo:6}},
+    {t:'Na me dem dey ask for money.',a:{techbro:2,abuja:2,japa:2},s:{hustle:6}},
+    {t:'I don mute am since 2021.',a:{lekki:2,sapa:1,corper:1},s:{soft:4}},
+    {t:'Na me dey start argument about politics.',a:{philosopher:3,abuja:1},s:{amebo:12}}]},
+  {q:'Which one be your signature line?',o:[
+    {t:'"E go better."',a:{sapa:2,corper:2,prayer:1},s:{prayer:6}},
+    {t:'"No gree for anybody."',a:{mainland:3,abuja:1},s:{hustle:10}},
+    {t:'"You know who my uncle be?"',a:{abuja:3,lekki:1},s:{soft:6}},
+    {t:'"When you wan marry?"',a:{aunty:3},s:{amebo:14}},
+    {t:'"Detty December, I dey come!"',a:{japa:3,lekki:1},s:{japa:10,soft:4}}]}
+];
+
+const MAXPTS = Object.fromEntries(ORDER.map(k => [k, QUESTIONS.reduce((s,q) => s + Math.max(...q.o.map(o => o.a[k]||0)), 0)]));
+const MAXRAW = Object.fromEntries(TRAITS.map(([k]) => [k, QUESTIONS.reduce((s,q) => s + Math.max(...q.o.map(o => o.s[k]||0)), 0)]));
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+
+function score(answers){
+  const pts = Object.fromEntries(ORDER.map(k => [k,0]));
+  const last = Object.fromEntries(ORDER.map(k => [k,-1]));
+  const raw = Object.fromEntries(TRAITS.map(([k]) => [k,0]));
+  answers.forEach((ai,qi) => {
+    const o = QUESTIONS[qi].o[ai];
+    for (const k in o.a){ pts[k] += o.a[k]; last[k] = qi; }
+    for (const k in o.s) raw[k] += o.s[k];
+  });
+  const key = ORDER.slice().sort((x,y) => (pts[y]/MAXPTS[y]) - (pts[x]/MAXPTS[x]) || last[y] - last[x])[0];
+  const match = clamp(Math.round(50 + 49 * pts[key] / MAXPTS[key]), 51, 99);
+  const traits = TRAITS.map(([k]) => clamp(Math.round(6 + 90 * raw[k] / MAXRAW[k]), 3, 99));
+  const si = TRAITS.findIndex(([k]) => k === TYPES[key].sig);
+  traits[si] = Math.max(traits[si], 72 + (pts[key] % 9) * 3);
+  return {key, match, traits};
+}
+const encode = r => [r.key, r.match, ...r.traits].join('-');
+function decode(h){
+  const p = (h||'').split('-');
+  if (p.length !== 8 || !TYPES[p[0]]) return null;
+  const n = p.slice(1).map(Number);
+  if (n.some(v => !Number.isInteger(v))) return null;
+  return {key:p[0], match:clamp(n[0],51,99), traits:n.slice(1).map(v => clamp(v,0,99))};
+}
+
+/* ---------- card drawing ---------- */
+const fontsReady = (() => {
+  const want = ['400 100px "Bungee"','800 40px "Schibsted Grotesk"','italic 800 40px "Schibsted Grotesk"','700 30px "Schibsted Grotesk"'];
+  const load = document.fonts ? Promise.all(want.map(f => document.fonts.load(f))) : Promise.resolve();
+  return Promise.race([load, new Promise(r => setTimeout(r, 3000))]).catch(() => {});
+})();
+
+function wrapText(ctx, text, max){
+  const lines = []; let line = '';
+  for (const w of text.split(' ')){
+    const test = line ? line + ' ' + w : w;
+    if (!line || ctx.measureText(test).width <= max) line = test; else { lines.push(line); line = w; }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+function fit(ctx, text, font, start, min, max, maxLines){
+  for (let s = start; s >= min; s -= 2){
+    ctx.font = font(s);
+    const lines = wrapText(ctx, text, max);
+    if (lines.length <= maxLines && lines.every(l => ctx.measureText(l).width <= max)) return {size:s, lines};
+  }
+  ctx.font = font(min);
+  return {size:min, lines:wrapText(ctx, text, max)};
+}
+function spacing(ctx, v){ if ('letterSpacing' in ctx) ctx.letterSpacing = v; }
+function rrect(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x,y,w,h,r) : ctx.rect(x,y,w,h); }
+
+function drawCard(r){
+  const W = 1080, H = 1350, P = 80, IW = W - 2*P;
+  const t = TYPES[r.key];
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const x = c.getContext('2d');
+  const B = '"Schibsted Grotesk", system-ui, sans-serif', D = 'Bungee, "Arial Black", sans-serif';
+
+  x.fillStyle = t.bg; x.fillRect(0,0,W,H);
+
+  // adire-style dot rings
+  x.save(); x.globalAlpha = .13; x.fillStyle = t.ink;
+  for (let ring = 1; ring <= 9; ring++){
+    const rad = ring * 34, n = Math.round(rad / 8.5);
+    for (let k = 0; k < n; k++){
+      const a = k / n * Math.PI * 2 + ring * .2;
+      x.beginPath(); x.arc(W - 110 + Math.cos(a)*rad, 360 + Math.sin(a)*rad, ring % 2 ? 5 : 3, 0, Math.PI*2); x.fill();
+    }
+  }
+  x.restore();
+
+  x.fillStyle = t.ink; x.textBaseline = 'alphabetic';
+  x.font = `40px ${D}`; x.fillText('NAIJA TYPE', P, 116);
+  x.font = `800 30px ${B}`; x.textAlign = 'right'; x.fillText(`No. ${String(t.no).padStart(2,'0')} / 10`, W-P, 112); x.textAlign = 'left';
+  x.fillRect(P, 144, IW, 5);
+
+  x.font = `800 28px ${B}`; spacing(x,'5px');
+  x.fillText('I BE THE', P, 210);
+  x.textAlign = 'right'; x.fillText(`${r.match}% MATCH`, W-P, 210); x.textAlign = 'left'; spacing(x,'0px');
+
+  // top block: name + slogan banner, centered in the space above the stats
+  const nm = fit(x, t.card, s => `${s}px ${D}`, 140, 64, IW, 2);
+  const nameH = nm.lines.length * nm.size * .98;
+  const sl = fit(x, `“${t.slogan}”`, s => `italic 800 ${s}px ${B}`, 46, 30, IW - 64, 2);
+  const lh = sl.size * 1.2, bh = sl.lines.length * lh + 50;
+  const top = 236, bottom = 730, gap = 44;
+  let y = top + Math.max(0, (bottom - top - (nameH + gap + bh)) / 2);
+
+  x.font = `${nm.size}px ${D}`; x.fillStyle = t.ink;
+  for (const l of nm.lines){ y += nm.size * .98; x.fillText(l, P - 4, y); }
+  y += gap;
+
+  x.save(); x.translate(W/2, y + bh/2); x.rotate(-1.6 * Math.PI / 180);
+  x.fillStyle = t.ink; x.fillRect(-IW/2 - 10, -bh/2, IW + 20, bh);
+  x.fillStyle = t.bg; x.font = `italic 800 ${sl.size}px ${B}`;
+  let ty = -bh/2 + 25 + sl.size * .92;
+  for (const l of sl.lines){ x.fillText(l, -IW/2 + 26, ty); ty += lh; }
+  x.restore();
+
+  // stats
+  const colW = (IW - 32) / 2, statTop = 768;
+  TRAITS.forEach(([k,label], i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    const tx = P + col * (colW + 32), tyy = statTop + row * 82;
+    x.fillStyle = t.ink;
+    x.font = `700 27px ${B}`; x.fillText(label, tx, tyy + 26);
+    x.font = `800 27px ${B}`; x.textAlign = 'right'; x.fillText(String(r.traits[i]), tx + colW, tyy + 26); x.textAlign = 'left';
+    x.lineWidth = 4; x.strokeStyle = t.ink; rrect(x, tx + 2, tyy + 40, colW - 4, 24, 4); x.stroke();
+    x.fillRect(tx + 2, tyy + 40, (colW - 4) * r.traits[i] / 100, 24);
+  });
+
+  // padi / wahala
+  const pTop = 1030, boxW = (IW - 24) / 2, boxH = 104;
+  [['MY PADI', TYPES[t.padi].card], ['MY WAHALA', TYPES[t.wahala].card]].forEach(([lab, name], i) => {
+    const bx = P + i * (boxW + 24);
+    x.lineWidth = 4; x.strokeStyle = t.ink; rrect(x, bx + 2, pTop + 2, boxW - 4, boxH - 4, 14); x.stroke();
+    x.fillStyle = t.ink; x.font = `800 21px ${B}`; spacing(x,'4px'); x.fillText(lab, bx + 24, pTop + 38); spacing(x,'0px');
+    const f = fit(x, name, s => `${s}px ${D}`, 34, 18, boxW - 48, 1);
+    x.font = `${f.size}px ${D}`; x.fillText(f.lines[0], bx + 24, pTop + 82);
+  });
+
+  // danfo stripes + footer plate
+  x.fillStyle = t.ink;
+  x.fillRect(0, H - 186, W, 12); x.fillRect(0, H - 164, W, 12);
+  rrect(x, P, H - 130, IW, 84, 14); x.fill();
+  x.fillStyle = t.bg;
+  if (SITE_LABEL){
+    x.font = `30px ${D}`; x.fillText('WETIN BE YOUR OWN?', P + 30, H - 76);
+    x.font = `800 28px ${B}`; x.textAlign = 'right'; x.fillText(SITE_LABEL, W - P - 30, H - 77); x.textAlign = 'left';
+  } else {
+    const f = fit(x, 'WETIN BE YOUR OWN NAIJA TYPE?', s => `${s}px ${D}`, 32, 20, IW - 60, 1);
+    x.font = `${f.size}px ${D}`; x.textAlign = 'center'; x.fillText(f.lines[0], W/2, H - 76); x.textAlign = 'left';
+  }
+  return c;
+}
+
+/* ---------- sound ---------- */
+const Sound = (() => {
+  let ctx = null, out = null, on = true;
+  try { on = localStorage.getItem('naija-type-sound') !== 'off'; } catch(e){}
+  function ac(){
+    if (!ctx){
+      const C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+      ctx = new C();
+      const comp = ctx.createDynamicsCompressor(); out = ctx.createGain(); out.gain.value = .55;
+      out.connect(comp); comp.connect(ctx.destination);
+    }
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  function tone(c, {f, f2, type = 'triangle', at = 0, d = .12, v = .2, lp}){
+    const t = c.currentTime + at, o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, t);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + d);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + .006); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+    let node = o;
+    if (lp){ const fl = c.createBiquadFilter(); fl.type = 'lowpass'; fl.frequency.value = lp; o.connect(fl); node = fl; }
+    node.connect(g); g.connect(out); o.start(t); o.stop(t + d + .03);
+  }
+  function click(c, at = 0, v = .25){
+    const t = c.currentTime + at, len = Math.floor(c.sampleRate * .025);
+    const buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 4);
+    const src = c.createBufferSource(), fl = c.createBiquadFilter(), g = c.createGain();
+    src.buffer = buf; fl.type = 'bandpass'; fl.frequency.value = 2400; fl.Q.value = 1.2; g.gain.value = v;
+    src.connect(fl); fl.connect(g); g.connect(out); src.start(t);
+  }
+  function honk(c, at){
+    tone(c, {f:349, type:'sawtooth', at, d:.17, v:.11, lp:1300});
+    tone(c, {f:440, type:'sawtooth', at, d:.17, v:.09, lp:1300});
+  }
+  const fx = {
+    tap: c => { click(c); tone(c, {f:900, f2:700, d:.05, v:.06}); },
+    pick: c => { click(c, 0, .18); tone(c, {f:520, f2:820, d:.1, v:.17}); tone(c, {f:1240, type:'sine', at:.06, d:.12, v:.07}); },
+    back: c => { click(c, 0, .15); tone(c, {f:640, f2:380, d:.12, v:.14}); },
+    horn: c => { honk(c, 0); honk(c, .22); },
+    reveal: c => {
+      honk(c, 0); honk(c, .2);
+      [523, 659, 784, 1047].forEach((f, i) => tone(c, {f, at:.48 + i * .085, d:.22, v:.14}));
+      tone(c, {f:1568, type:'sine', at:.86, d:.5, v:.06});
+    },
+    success: c => { tone(c, {f:880, type:'sine', d:.1, v:.12}); tone(c, {f:1320, type:'sine', at:.08, d:.18, v:.12}); }
+  };
+  return {
+    get on(){ return on; },
+    set(v){ on = v; try { localStorage.setItem('naija-type-sound', v ? 'on' : 'off'); } catch(e){} },
+    play(name){ if (!on || !fx[name]) return; try { const c = ac(); if (c) fx[name](c); } catch(e){} }
+  };
+})();
+function buzz(ms){ try { if (navigator.vibrate) navigator.vibrate(ms); } catch(e){} }
+
+/* ---------- UI ---------- */
+const $ = s => document.querySelector(s);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let answers = [], qi = 0, locked = false, current = null, cardCanvas = null;
+
+function store(k, v){ try { v == null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch(e){} }
+function recall(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
+function setHash(h){ try { history.replaceState(null, '', h ? '#' + h : location.pathname + location.search); } catch(e){} }
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.hidden = s.id !== id);
+  $('#all-types').hidden = !(id === 's-result' || id === 's-friend' || id === 's-home-types');
+  window.scrollTo(0,0);
+}
+
+function miniCard(k, opts = {}){
+  const t = TYPES[k];
+  const el = document.createElement(opts.tag || 'div');
+  el.className = 'mini' + (opts.you ? ' you' : '');
+  el.style.background = t.bg; el.style.color = t.ink;
+  el.innerHTML = `<span class="no"></span><p class="nm"></p><span class="sg"></span>`;
+  el.querySelector('.no').textContent = `No. ${String(t.no).padStart(2,'0')}`;
+  el.querySelector('.nm').textContent = t.name;
+  const sg = el.querySelector('.sg'); sg.textContent = t.slogan; sg.style.background = t.ink; sg.style.color = t.bg;
+  if (opts.you){ const tag = document.createElement('span'); tag.className = 'you-tag'; tag.textContent = opts.you; tag.style.background = t.ink; tag.style.color = t.bg; el.appendChild(tag); }
+  return el;
+}
+
+function buildStatic(){
+  const fan = $('#fan');
+  ['japa','techbro','aunty'].forEach(k => fan.appendChild(miniCard(k)));
+  const slogans = ['No condition is permanent','God’s time is the best','Eko o ni baje','No gree for anybody','Who know tomorrow','No food for lazy man','Man must wack','E go better','Sapa na temporary','Shine your eye'];
+  const run = slogans.map(s => `<span>${s.toUpperCase()}</span>`).join('');
+  $('#marquee').innerHTML = run + run;
+  renderTypes(null);
+}
+function renderTypes(you, label){
+  const ul = $('#types'); ul.innerHTML = '';
+  ORDER.forEach(k => { const li = miniCard(k, {tag:'li', you: k === you ? label : ''}); ul.appendChild(li); });
+}
+
+function renderRoute(){
+  const route = $('#route');
+  route.querySelectorAll('.stop').forEach(s => s.remove());
+  STOPS.forEach((_, i) => {
+    const d = document.createElement('div'); d.className = 'stop' + (i < qi ? ' done' : '');
+    d.style.left = (i / 9 * 100) + '%'; route.insertBefore(d, $('#bus'));
+  });
+  $('#bus').style.left = (qi / 9 * 100) + '%';
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[qi];
+  $('#q-stop').textContent = `Stop ${String(qi+1).padStart(2,'0')} of 10 · ${STOPS[qi]}`;
+  $('#q-shout').textContent = SHOUTS[qi];
+  $('#q-text').textContent = q.q;
+  const box = $('#q-opts'); box.innerHTML = '';
+  q.o.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'opt' + (answers[qi] === i ? ' picked' : ''); b.id = 'opt-' + i;
+    b.innerHTML = `<span class="key" aria-hidden="true">${'ABCDE'[i]}</span><span></span>`;
+    b.lastChild.textContent = o.t;
+    b.addEventListener('click', () => pick(i));
+    box.appendChild(b);
+  });
+  $('#back').textContent = qi === 0 ? '← Home' : '← Back';
+  renderRoute();
+  const body = $('#q-body'); body.classList.remove('enter'); void body.offsetWidth; body.classList.add('enter');
+  $('#q-text').focus({preventScroll:true});
+}
+
+function pick(i){
+  if (locked) return;
+  locked = true; answers[qi] = i;
+  Sound.play('pick'); buzz(12);
+  document.querySelectorAll('.opt').forEach((b, j) => b.classList.toggle('picked', j === i));
+  setTimeout(() => {
+    locked = false;
+    if (qi < QUESTIONS.length - 1){ qi++; renderQuestion(); } else finish();
+  }, reduced ? 120 : 340);
+}
+
+function startQuiz(){
+  answers = []; qi = 0; locked = false;
+  show('s-quiz'); renderQuestion();
+}
+
+async function finish(){
+  show('s-load');
+  const res = score(answers);
+  const minWait = new Promise(r => setTimeout(r, reduced ? 300 : 1500));
+  await fontsReady; await minWait;
+  const h = encode(res); store('own', h); setHash(h);
+  Sound.play('reveal'); buzz([20, 40, 30]);
+  showResult(res, true);
+}
+
+function shareUrl(r){
+  const base = (location.origin && location.origin !== 'null') ? location.origin + location.pathname : '';
+  return base ? `${base}#${encode(r)}` : '';
+}
+function shareText(r){
+  const t = TYPES[r.key], url = shareUrl(r);
+  return `I be ${t.name} (${r.match}% match) 😭\n“${t.slogan}”\n\nWetin be your own Naija Type?${url ? ' ' + url : ''}`;
+}
+
+async function showResult(r, animate){
+  current = r;
+  const t = TYPES[r.key];
+  await fontsReady;
+  cardCanvas = drawCard(r);
+  const img = $('#r-img');
+  img.src = cardCanvas.toDataURL('image/png');
+  img.alt = `Naija Type card: ${t.name}, ${r.match}% match. "${t.slogan}"`;
+  $('#r-name').textContent = t.name;
+  $('#r-match').textContent = `${r.match}% MATCH`;
+  $('#r-slogan').textContent = `“${t.slogan}”`;
+  $('#r-desc').textContent = t.desc;
+  $('#r-padi').textContent = TYPES[t.padi].name;
+  $('#r-padi-note').textContent = `Tag your padi wey be ${TYPES[t.padi].name.replace('The ','')}.`;
+  $('#r-wahala').textContent = TYPES[t.wahala].name;
+  $('#r-wahala-note').textContent = `Una two no go ever gree. Tag dem anyway.`;
+  const ul = $('#r-meters'); ul.innerHTML = '';
+  TRAITS.forEach(([, label], i) => {
+    const li = document.createElement('li'); li.className = 'meter';
+    li.innerHTML = `<div class="row"><span></span><span></span></div><div class="bar" role="meter" aria-valuemin="0" aria-valuemax="100"><i></i></div>`;
+    li.querySelector('.row span').textContent = label;
+    li.querySelector('.row span:last-child').textContent = r.traits[i];
+    const bar = li.querySelector('.bar'); bar.setAttribute('aria-valuenow', r.traits[i]); bar.setAttribute('aria-label', label);
+    ul.appendChild(li);
+  });
+  $('#share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText(r));
+  $('#share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText(r));
+  $('#linkbox').hidden = true;
+  $('#types-title').textContent = 'All 10 Naija Types';
+  renderTypes(r.key, 'YOU');
+  show('s-result');
+  img.classList.remove('slap'); if (animate){ void img.offsetWidth; img.classList.add('slap'); }
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    ul.querySelectorAll('.bar i').forEach((b, i) => b.style.width = r.traits[i] + '%');
+  }));
+}
+
+async function showFriend(r){
+  const t = TYPES[r.key];
+  await fontsReady;
+  const c = drawCard(r);
+  $('#f-img').src = c.toDataURL('image/png');
+  $('#f-img').alt = `Your friend's Naija Type card: ${t.name}`;
+  $('#f-title').textContent = `Your padi na ${t.name}.`;
+  $('#f-lede').textContent = `${r.match}% match. "${t.slogan}" Answer 10 questions and see whether you better pass am.`;
+  $('#types-title').textContent = 'All 10 Naija Types';
+  renderTypes(r.key, 'YOUR PADI');
+  show('s-friend');
+}
+
+let downloads = null;
+if (window.claude && window.claude.use) window.claude.use('downloads').then(d => { downloads = d; }).catch(() => {});
+
+let toastTimer;
+function toast(msg){
+  const el = $('#toast'); el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('on'), 3200);
+}
+
+async function saveCard(){
+  if (!cardCanvas || !current) return;
+  const name = `naija-type-${current.key}.png`;
+  const blob = await new Promise(r => cardCanvas.toBlob(r, 'image/png'));
+  if (!blob) { toast('Long-press the card to save am.'); return; }
+  if (downloads){
+    try { await downloads.save({filename:name, data:blob}); Sound.play('success'); toast('Card don save. Go post am.'); }
+    catch(e){
+      if (e && e.code === 'declined') return;
+      toast(e && e.code === 'rate_limited' ? 'Wait small, then try again.' : 'Save no work here. Long-press the card to save am.');
+    }
+    return;
+  }
+  try {
+    const file = new File([blob], name, {type:'image/png'});
+    if (navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({files:[file], text: shareText(current)});
+      return;
+    }
+  } catch(e){ if (e && e.name === 'AbortError') return; }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  toast('If the download no start, long-press the card to save am.');
+}
+
+async function copyLink(){
+  if (!current) return;
+  const url = shareUrl(current) || shareText(current);
+  try { await navigator.clipboard.writeText(url); Sound.play('success'); toast('Link don copy. Go paste am for group chat.'); }
+  catch(e){
+    const box = $('#linkbox'); box.value = url; box.hidden = false; box.focus(); box.select();
+    toast('Copy no work here. The link dey the box. Select am and copy.');
+  }
+}
+
+$('#start').addEventListener('click', startQuiz);
+$('#f-start').addEventListener('click', startQuiz);
+$('#retake').addEventListener('click', () => { store('own', null); setHash(''); startQuiz(); });
+$('#logo').addEventListener('click', () => { setHash(''); renderTypes(null); show('s-home'); });
+$('#peek').addEventListener('click', () => { renderTypes(null); $('#all-types').hidden = false; $('#all-types').scrollIntoView({behavior: reduced ? 'auto' : 'smooth'}); });
+$('#back').addEventListener('click', () => { if (locked) return; if (qi === 0) show('s-home'); else { qi--; renderQuestion(); } });
+$('#save').addEventListener('click', saveCard);
+$('#copy').addEventListener('click', copyLink);
+document.addEventListener('keydown', e => {
+  if ($('#s-quiz').hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  const i = 'abcde'.indexOf(e.key.toLowerCase());
+  if (i >= 0) { e.preventDefault(); pick(i); }
+  else if (e.key === 'Backspace' && !locked) { e.preventDefault(); $('#back').click(); }
+});
+if (matchMedia('(hover: none)').matches) $('#kbd-tip').hidden = true;
+
+function renderSound(){
+  $('#sound').setAttribute('aria-pressed', String(Sound.on));
+  $('#sound-label').textContent = Sound.on ? 'Sound on' : 'Sound off';
+}
+$('#sound').addEventListener('click', () => { Sound.set(!Sound.on); renderSound(); Sound.play('tap'); });
+document.addEventListener('click', e => { const b = e.target.closest('[data-sfx]'); if (b) Sound.play(b.dataset.sfx); });
+renderSound();
+buildStatic();
+(function boot(){
+  const h = location.hash.slice(1);
+  const r = decode(h);
+  if (!r) { show('s-home'); return; }
+  if (recall('own') === h) showResult(r, false); else showFriend(r);
+})();
+</script>
