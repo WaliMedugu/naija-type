@@ -228,7 +228,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
         <h1>Wetin be your <span class="hl">Naija Type?</span></h1>
         <p class="lede">Answer 12 questions about how you really think and act. Get your type, your stats and a card for the group chat.</p>
         <div class="cta-row">
-          <button class="btn btn-primary btn-big" id="start" type="button" data-sfx="horn">Start the test
+          <button class="btn btn-primary btn-big" id="start" type="button" data-sfx="horn">Oya, start
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
           <button class="link-btn" id="peek" type="button" data-sfx="tap">See all 20 types</button>
@@ -279,7 +279,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
   <section class="screen" id="s-load" hidden>
     <div class="loading" role="status">
       <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-      <h2>Conductor is counting your change…</h2>
+      <h2>Conductor dey count your change…</h2>
       <p>Your card is coming.</p>
     </div>
   </section>
@@ -334,7 +334,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
         </div>
 
         <div class="again">
-          <button class="btn" id="retake" type="button" data-sfx="horn">Retake the test</button>
+          <button class="btn" id="retake" type="button" data-sfx="horn">Retake am</button>
         </div>
       </div>
     </div>
@@ -384,13 +384,13 @@ const TYPES = {
     strengths:['Ambitious','Generous when you win','Knows what you want'],
     blind:'Every purchase becomes a reward, so the savings goal keeps moving.'},
   quietmoney:{no:2,d:'gb',name:'The Quiet Money',card:'QUIET MONEY',bg:'#C9B27C',ink:'#1E2A12',
-    slogan:'Nobody knows what I do. That’s the plan.',
+    slogan:'Nobody know wetin I dey do. Na the plan.',
     desc:'Nobody is completely sure what you do for a living, and you like it that way. You move in silence, make big decisions alone and only announce things after they’re done. People hear about your new car from someone else.',
     real:'You don’t fully trust anyone with your plans. Not because they’re bad people, but because you’ve seen what talking too early does.',
     strengths:['Disciplined','Patient','Unbothered'],
     blind:'You keep people so far from your plans that they can’t help you either.'},
   breadwinner:{no:3,d:'gh',name:'The Breadwinner',card:'BREADWINNER',bg:'#F2692B',ink:'#1C0D05',
-    slogan:'Everybody eats when I win.',
+    slogan:'When I win, everybody chop.',
     desc:'Somewhere along the line you became the person everyone calls when money is needed, and you never said no. School fees, hospital bills, rent, weddings. You carry a lot, and you carry it quietly.',
     real:'Some days you wish someone would ask how you’re doing without a request at the end of the message.',
     strengths:['Reliable','Selfless','Hardworking'],
@@ -408,13 +408,13 @@ const TYPES = {
     strengths:['Fun','Motivated','Lives fully'],
     blind:'January always arrives faster than you budgeted for.'},
   plug:{no:6,d:'vb',name:'The Plug',card:'THE PLUG',bg:'#00A99D',ink:'#04201D',
-    slogan:'I know a place. And a guy. And a discount.',
+    slogan:'I know place. I know guy. I fit get discount.',
     desc:'You know the better restaurant, the cheaper route and the event that’sn’t on Instagram yet. Your friends don’t plan anything without checking with you first, and the outing is always better when they do.',
     real:'Being useful is how you make sure you’re always invited.',
     strengths:['Resourceful','Connected','Always has options'],
     blind:'You find the perfect spot for everyone else and forget to ask what you actually want.'},
   owambe:{no:7,d:'vh',name:'The Owambe Spirit',card:'OWAMBE SPIRIT',bg:'#E8A33D',ink:'#2A1600',
-    slogan:'If there’s jollof and music, I’m on my way.',
+    slogan:'If jollof and music dey, I don dey come.',
     desc:'Any gathering gets better once you arrive. You remember birthdays, show up to things you weren’t sure you could make, and dance like the celebrant owes you money. People feel welcome around you without knowing why.',
     real:'You don’t like being alone with your thoughts for too long. Crowds are easier.',
     strengths:['Warm','Fun','Makes people feel seen'],
@@ -426,13 +426,13 @@ const TYPES = {
     strengths:['Confident','Entertaining','Expressive'],
     blind:'Not every moment needs an audience, but you rarely test that.'},
   longgame:{no:9,d:'bg',name:'The Long Game',card:'THE LONG GAME',bg:'#22307E',ink:'#F8E7B0',
-    slogan:'Plan A, plan B, plan C and a backup passport.',
+    slogan:'Plan A, B, C and backup passport.',
     desc:'You have a five-year plan, a backup plan and a note on your phone called "options". You research before you buy and compare before you commit. You’re probably a few steps into a move nobody knows about yet.',
     real:'You plan everything because uncertainty genuinely scares you, not because you enjoy planning.',
     strengths:['Strategic','Patient','Prepared'],
     blind:'You can plan for so long that the right moment passes while you’re still checking.'},
   budgetballer:{no:10,d:'bv',name:'The Budget Baller',card:'BUDGET BALLER',bg:'#9BE15D',ink:'#12300A',
-    slogan:'Soft life, but make it sensible.',
+    slogan:'Soft life, but with sense.',
     desc:'You enjoy life, but never on credit. You know the happy hour times, the free events and the exact day the sale starts. People think you spent a lot. You didn’t.',
     real:'You’ve been broke before and you never want to feel that again. Every smart choice traces back to that.',
     strengths:['Smart with money','Fun without waste','Practical'],
@@ -444,25 +444,25 @@ const TYPES = {
     strengths:['Wise','Calm','Trustworthy'],
     blind:'You give advice you never take.'},
   philosopher:{no:12,d:'bm',name:'The Street Philosopher',card:'STREET PHILOSOPHER',bg:'#3B3630',ink:'#F3ECD2',
-    slogan:'I have a theory about that.',
+    slogan:'I get theory for that one.',
     desc:'You have a theory about everything: the economy, relationships, why your neighbour’s car is always clean. You read the full article before you comment. You talk long, but people listen because you’re usually right.',
     real:'Overthinking is your hobby and your problem. Your brain doesn’t really switch off.',
     strengths:['Insightful','Curious','Sharp'],
     blind:'Being right and being kind aren’t always the same thing.'},
   familyceo:{no:13,d:'hg',name:'The Family CEO',card:'FAMILY CEO',bg:'#7C1735',ink:'#F5C95C',
-    slogan:'If I don’t organise it, it won’t happen.',
+    slogan:'If I no organise am, e no go happen.',
     desc:'You collect the contributions, book the venue and chase the replies on the family group. People complain about your reminders and then thank you at the event. Every circle you’re in runs a little smoother because of you.',
     real:'You’re tired of being the responsible one, but you don’t trust anyone else to do it properly.',
     strengths:['Organised','Dependable','Natural leader'],
     blind:'Not everything needs managing. Especially people.'},
   rideordie:{no:14,d:'hv',name:'The Ride or Die',card:'RIDE OR DIE',bg:'#0B6B4A',ink:'#F3ECD2',
-    slogan:'Your problem is my problem. Your party is my party.',
+    slogan:'Your wahala na my wahala. Your party na my party.',
     desc:'Once you claim someone as your person, it’s for life. You fight their battles, celebrate their wins louder than they do and show up with food when things are bad. Friends from primary school still call you.',
     real:'You fear being left behind more than you show. Loyalty is how you make sure people stay.',
     strengths:['Loyal','Fun','Protective'],
     blind:'You stay in friendships long after they stop giving anything back.'},
   peacemaker:{no:15,d:'hb',name:'The Peacemaker',card:'PEACEMAKER',bg:'#F6F3EA',ink:'#1A3FA0',
-    slogan:'Let’s settle this like family.',
+    slogan:'Make we settle am like family.',
     desc:'When people argue, they look at you to settle it. You see both sides, you never raise your voice and you know exactly what to say to cool things down. People feel safe around you.',
     real:'You avoid conflict so well that your own feelings rarely get a turn.',
     strengths:['Patient','Fair','Calming'],
@@ -474,25 +474,25 @@ const TYPES = {
     strengths:['Caring','Honest','Generous'],
     blind:'Not every opinion needs to be said out loud. You’ve heard this before.'},
   smooth:{no:17,d:'mg',name:'The Smooth Talker',card:'SMOOTH TALKER',bg:'#6B3E1F',ink:'#FFE2B8',
-    slogan:'I could sell sand in the Sahara.',
+    slogan:'I fit sell sand for Sahara.',
     desc:'You can talk your way into a room, a deal or a discount. You read people quickly and know which words will land. If you sold sand, people would ask about delivery.',
     real:'You’re very good at being liked. You’re less sure people know the real you.',
     strengths:['Charming','Persuasive','Quick-thinking'],
     blind:'Talking your way out of trouble means you rarely sit with the consequences.'},
   comedian:{no:18,d:'mv',name:'The Group Chat Comedian',card:'GROUP CHAT COMEDIAN',bg:'#6EC1FF',ink:'#0A2238',
-    slogan:'Every situation is content.',
+    slogan:'Everything na content.',
     desc:'You have the perfect meme for every message, a voice note that ends every argument and a nickname for everyone. The group chat goes quiet when you’re busy, and everyone notices.',
     real:'Jokes are how you handle the things you don’t want to talk about seriously.',
     strengths:['Funny','Quick','Lightens any room'],
     blind:'Not every serious moment needs a punchline.'},
   debater:{no:19,d:'mb',name:'The Debater',card:'THE DEBATER',bg:'#A61B6B',ink:'#FFE3F1',
-    slogan:'I’m not arguing. I’m explaining why you’re wrong.',
+    slogan:'I no dey argue. I dey explain why you wrong.',
     desc:'You bring screenshots, dates and receipts to casual conversations. People hate debating you and then quietly agree with you a week later. You can’t let a wrong thing slide.',
     real:'You need things to make sense. Unfairness genuinely bothers you, which is why you can’t let it go.',
     strengths:['Sharp','Principled','Fearless'],
     blind:'Winning the argument can cost you the relationship.'},
   amebo:{no:20,d:'mh',name:'The Amebo',card:'THE AMEBO',bg:'#FFD9A0',ink:'#5A1E00',
-    slogan:'I don’t gossip. I share updates.',
+    slogan:'I no dey gossip. I dey share update.',
     desc:'You always know first: who’s dating, who’s travelling, who’s expecting, who’s fighting. You don’t gossip to hurt anyone. You just believe information should move freely, preferably through you.',
     real:'You know everyone’s story because you genuinely care about people. You just can’t keep it to yourself.',
     strengths:['Observant','Social','Well-connected'],
@@ -505,73 +505,73 @@ const SHOUTS = ['"Enter with your change!"','"Ojota! Ojota!"','"Maryland! Maryla
 
 // Every question has one answer per trait, so every option fits someone, wherever they live.
 const QUESTIONS = [
-  {q:'A big alert lands you weren’t expecting. First move?',o:[
-    {t:'Save it and tell nobody.',s:{b:3,g:1}},
-    {t:'Treat myself. I deserve this.',s:{v:3}},
-    {t:'Sort out family and friends first.',s:{h:3}},
-    {t:'Put it into something that makes more.',s:{g:3,b:1}},
-    {t:'Screenshot the alert. The people must know.',s:{m:3,v:1}}]},
-  {q:'The group chat is popping at 1am. Where are you?',o:[
-    {t:'Asleep. I have things to do tomorrow.',s:{g:3}},
-    {t:'I started it.',s:{m:3}},
+  {q:'Omo! Alert just landed and you weren’t expecting it. First move?',o:[
+    {t:'Save it quietly. Nobody needs to know.',s:{b:3,g:1}},
+    {t:'Enjoyment first. I deserve this one.',s:{v:3}},
+    {t:'Settle family and friends first.',s:{h:3}},
+    {t:'Invest it. Money must make money.',s:{g:3,b:1}},
+    {t:'Screenshot am. The people must know.',s:{m:3,v:1}}]},
+  {q:'Group chat is on fire at 1am. Where you dey?',o:[
+    {t:'Sleeping. I get work tomorrow.',s:{g:3}},
+    {t:'Na me start am.',s:{m:3}},
     {t:'Reading everything. Saying nothing.',s:{b:3}},
-    {t:'Sending memes and voice notes.',s:{v:3,m:1}},
-    {t:'Checking that everyone is actually okay.',s:{h:3}}]},
-  {q:'A friend texts: "I need to tell you something." Your first thought?',o:[
-    {t:'"Are you okay? Where are you?"',s:{h:3}},
-    {t:'"Finally. Gist."',s:{m:3}},
-    {t:'"Please let it be good news. I’m not in the mood."',s:{v:3}},
-    {t:'I’m already running scenarios in my head.',s:{b:3}},
-    {t:'"Is it a business idea? I’m listening."',s:{g:3}}]},
-  {q:'Your idea of a perfect weekend:',o:[
-    {t:'Brunch, an outing, then wherever the night goes.',s:{v:3}},
-    {t:'Home alone. Recharge. Plan the week.',s:{b:3}},
-    {t:'Catching up on work or my side project.',s:{g:3}},
-    {t:'Out with people where the gist beats the food.',s:{m:3,v:1}},
+    {t:'Sending memes and voice notes back to back.',s:{v:3,m:1}},
+    {t:'Checking if everybody is okay.',s:{h:3}}]},
+  {q:'Your friend texts: "I need to tell you something." First thought?',o:[
+    {t:'"Are you okay? Where you dey?"',s:{h:3}},
+    {t:'"Finally! Gist don land."',s:{m:3}},
+    {t:'"Abeg let it be good news o."',s:{v:3}},
+    {t:'My mind don already run ten scenarios.',s:{b:3}},
+    {t:'"Is it business? I’m listening."',s:{g:3}}]},
+  {q:'Your perfect weekend na:',o:[
+    {t:'Brunch, outing, then wherever the night carry me.',s:{v:3}},
+    {t:'Me, my bed and my peace. Plan the week small.',s:{b:3}},
+    {t:'Side hustle. Weekend na extra working day.',s:{g:3}},
+    {t:'Anywhere the gist is better than the food.',s:{m:3,v:1}},
     {t:'Visiting family or hosting my people.',s:{h:3}}]},
-  {q:'At a party or owambe, where do people find you?',o:[
-    {t:'At the table that knows everybody’s business.',s:{m:3}},
-    {t:'Helping the hosts. Somebody has to share the food.',s:{h:3}},
-    {t:'On the dance floor.',s:{v:3}},
-    {t:'Networking. Every party is an opportunity.',s:{g:3}},
-    {t:'Near the exit, takeaway pack already secured.',s:{b:3}}]},
-  {q:'Someone owes you money and has gone quiet. You:',o:[
-    {t:'Send a polite, firm reminder. With my account number.',s:{g:3,b:1}},
-    {t:'Forget it. Life is too short.',s:{v:3}},
-    {t:'Post a very specific status. They’ll see it.',s:{m:3}},
-    {t:'Let it go. Maybe they’re going through something.',s:{h:3}},
-    {t:'Nothing. I wrote it off the day I lent it.',s:{b:3}}]},
-  {q:'What do people usually come to you for?',o:[
-    {t:'Advice. I’ve already thought it through.',s:{b:3,h:1}},
-    {t:'Opportunities. Jobs, links, connections.',s:{g:3}},
-    {t:'The latest gist.',s:{m:3}},
-    {t:'Comfort. I’m the safe space.',s:{h:3}},
-    {t:'Plans. I know where the fun is.',s:{v:3}}]},
-  {q:'Your screen-time report would expose you for:',o:[
+  {q:'For owambe, where people go find you?',o:[
+    {t:'For the table wey sabi everybody business.',s:{m:3}},
+    {t:'Helping the celebrant. Somebody must share the food.',s:{h:3}},
+    {t:'On the dance floor, spraying or collecting.',s:{v:3}},
+    {t:'Networking. Every party na opportunity.',s:{g:3}},
+    {t:'Near the exit. Takeaway pack don secure.',s:{b:3}}]},
+  {q:'Somebody owes you money and don dey form quiet. You:',o:[
+    {t:'Send a polite reminder with my account number.',s:{g:3,b:1}},
+    {t:'Forget am. Life too short.',s:{v:3}},
+    {t:'Post one very specific status. They go see am.',s:{m:3}},
+    {t:'Let it go. Maybe things are hard for them.',s:{h:3}},
+    {t:'Nothing. I wrote it off the day I gave it.',s:{b:3}}]},
+  {q:'Wetin people usually come to you for?',o:[
+    {t:'Advice. I don already think am through.',s:{b:3,h:1}},
+    {t:'Connect. Jobs, links, opportunities.',s:{g:3}},
+    {t:'Latest gist.',s:{m:3}},
+    {t:'Comfort. I be their safe space.',s:{h:3}},
+    {t:'Plans. I sabi where enjoyment dey.',s:{v:3}}]},
+  {q:'Your screen time go expose you for:',o:[
     {t:'Instagram, TikTok and music.',s:{v:3}},
-    {t:'X arguments and WhatsApp statuses.',s:{m:3}},
+    {t:'Arguing on X and watching WhatsApp status.',s:{m:3}},
     {t:'Long calls and chats with my people.',s:{h:3}},
-    {t:'YouTube explainers and research rabbit holes.',s:{b:3}},
-    {t:'Email, LinkedIn and banking apps.',s:{g:3}}]},
-  {q:'Plans get cancelled at the last minute. You:',o:[
-    {t:'Secretly relieved. Home was always the plan.',s:{b:3}},
-    {t:'Check that the person who cancelled is okay.',s:{h:3}},
-    {t:'Already texting someone else. The day must happen.',s:{v:3}},
-    {t:'Let the group know exactly who cancelled.',s:{m:3}},
-    {t:'Good. More time to get things done.',s:{g:3}}]},
-  {q:'In a heated argument, you’re the one who:',o:[
-    {t:'Tries to calm everybody down.',s:{h:3}},
+    {t:'YouTube videos and research wey no get end.',s:{b:3}},
+    {t:'Email, LinkedIn and bank app.',s:{g:3}}]},
+  {q:'Plans cancel last minute. You:',o:[
+    {t:'Secretly happy. Home was always the plan.',s:{b:3}},
+    {t:'Check if the person wey cancel dey okay.',s:{h:3}},
+    {t:'Already texting someone else. Today must happen.',s:{v:3}},
+    {t:'Tell the group exactly who cancelled.',s:{m:3}},
+    {t:'Good. More time to face my work.',s:{g:3}}]},
+  {q:'When argument hot, you be the one wey:',o:[
+    {t:'Dey beg everybody to calm down.',s:{h:3}},
     {t:'Brings receipts and screenshots.',s:{b:3,m:1}},
-    {t:'Leaves. I have better things to do.',s:{g:3}},
-    {t:'Cracks a joke to break the tension.',s:{v:3,m:1}},
+    {t:'Waka comot. I get better things to do.',s:{g:3}},
+    {t:'Cracks joke to cool the tension.',s:{v:3,m:1}},
     {t:'Wins. Eventually. Loudly.',s:{m:3}}]},
-  {q:'Which of these would genuinely hurt the most?',o:[
-    {t:'Being ignored when I’m talking.',s:{m:3}},
+  {q:'Which one go pain you pass?',o:[
+    {t:'People ignoring me while I’m talking.',s:{m:3}},
     {t:'Being in the same place five years from now.',s:{g:3}},
     {t:'Losing my people.',s:{h:3}},
-    {t:'Being fooled or taken advantage of.',s:{b:3}},
-    {t:'A life with no fun, travel or good food.',s:{v:3}}]},
-  {q:'Your friends would describe you in one word as:',o:[
+    {t:'When person play me like fool.',s:{b:3}},
+    {t:'Life without enjoyment, travel and good food.',s:{v:3}}]},
+  {q:'Your padis would describe you as:',o:[
     {t:'Loyal.',s:{h:3}},
     {t:'Driven.',s:{g:3}},
     {t:'Unfiltered.',s:{m:3}},
