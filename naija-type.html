@@ -1,5 +1,19 @@
-<title>Naija Type</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="12 questions. About a minute. Find out which of the 20 Naija Types you are and get a card for the group chat.">
+<meta property="og:title" content="Wetin be your Naija Type?">
+<meta property="og:description" content="20 types. Are you The Amebo, The Breadwinner, The Detty December or The Naija Aunty?">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#FFC20E">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%23FFC20E'/><rect y='7' width='32' height='5' fill='%23151310'/><rect y='20' width='32' height='5' fill='%23151310'/><text x='16' y='18.5' font-family='Arial Black,Impact,sans-serif' font-weight='900' font-size='11' text-anchor='middle' dominant-baseline='middle' fill='%23FFC20E'>NT</text></svg>">
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<title>Naija Type</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Schibsted+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap">
@@ -129,6 +143,13 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
 .meter .row span:last-child{font-variant-numeric:tabular-nums}
 .bar{height:16px;border:3px solid var(--ink);border-radius:4px;background:var(--paper);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.deep{display:grid;gap:18px;margin-top:30px}
+.deep small{display:block;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.deep p{margin:0;font-size:17px;max-width:52ch}
+.deep .real{background:var(--ink);color:var(--paper);border-radius:12px;padding:16px 18px;box-shadow:4px 4px 0 var(--flag)}
+.deep .real p{font-weight:700;font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font-weight:800;font-size:15px;border:3px solid var(--ink);border-radius:999px;padding:5px 13px;background:var(--paper)}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .pair div{border:3px solid var(--ink);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.3)}
 .pair small{display:block;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
@@ -191,7 +212,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
   <header class="top">
     <button class="plate" id="logo" type="button" data-sfx="tap" aria-label="Naija Type home">NAIJA TYPE</button>
     <div class="top-right">
-      <span class="top-note">10 types · 1 card · plenty wahala</span>
+      <span class="top-note">20 types · 1 card · plenty wahala</span>
       <button class="sound-btn" id="sound" type="button" aria-pressed="true" aria-label="Sound">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="cross" d="M16 9l6 6M22 9l-6 6"/></svg>
         <span id="sound-label">Sound on</span>
@@ -205,15 +226,15 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
       <div>
         <p class="eyebrow">The Naija personality test</p>
         <h1>Wetin be your <span class="hl">Naija Type?</span></h1>
-        <p class="lede">Answer 10 questions about your real life. Get your type, your stats and a card wey go scatter your group chat.</p>
+        <p class="lede">Answer 12 questions about how you really think and act. Get your type, your stats and a card for the group chat.</p>
         <div class="cta-row">
-          <button class="btn btn-primary btn-big" id="start" type="button" data-sfx="horn">Start am
+          <button class="btn btn-primary btn-big" id="start" type="button" data-sfx="horn">Start the test
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <button class="link-btn" id="peek" type="button" data-sfx="tap">See all 10 types</button>
+          <button class="link-btn" id="peek" type="button" data-sfx="tap">See all 20 types</button>
         </div>
         <ul class="facts">
-          <li>60 seconds</li><li>No login</li><li>We no dey store your answers</li>
+          <li>About 1 minute</li><li>No login</li><li>We don’t store your answers</li>
         </ul>
       </div>
       <div class="fan" id="fan" aria-hidden="true"></div>
@@ -258,8 +279,8 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
   <section class="screen" id="s-load" hidden>
     <div class="loading" role="status">
       <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-      <h2>Conductor dey count your change…</h2>
-      <p>Your card dey come.</p>
+      <h2>Conductor is counting your change…</h2>
+      <p>Your card is coming.</p>
     </div>
   </section>
 
@@ -268,7 +289,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
     <div class="result">
       <div class="shot">
         <img id="r-img" alt="">
-        <p class="hint">On phone? Long-press the card to save am.</p>
+        <p class="hint">On phone? Long-press the card to save it.</p>
       </div>
       <div>
         <p class="eyebrow">Your Naija Type</p>
@@ -280,11 +301,11 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
         <div class="actions">
           <a class="btn btn-wa" id="share-wa" data-sfx="tap" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
-            Share for WhatsApp
+            Share on WhatsApp
           </a>
           <a class="btn" id="share-x" data-sfx="tap" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>
-            Post am for X
+            Post on X
           </a>
           <button class="btn" id="save" type="button" data-sfx="tap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
@@ -297,17 +318,23 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
         </div>
         <input class="linkbox" id="linkbox" readonly hidden aria-label="Link to your result">
 
+        <div class="deep">
+          <div class="real"><small>What people don’t know</small><p id="r-real"></p></div>
+          <div><small>Strengths</small><ul class="chips" id="r-strengths"></ul></div>
+          <div><small>Blind spot</small><p id="r-blind"></p></div>
+        </div>
+
         <p class="block-title">Your stats</p>
         <ul class="meters" id="r-meters"></ul>
 
-        <p class="block-title">Who you go jam</p>
+        <p class="block-title">Your people</p>
         <div class="pair">
           <div><small>Your padi</small><b id="r-padi"></b><p id="r-padi-note"></p></div>
           <div><small>Your wahala</small><b id="r-wahala"></b><p id="r-wahala-note"></p></div>
         </div>
 
         <div class="again">
-          <button class="btn" id="retake" type="button" data-sfx="horn">Retake am</button>
+          <button class="btn" id="retake" type="button" data-sfx="horn">Retake the test</button>
         </div>
       </div>
     </div>
@@ -317,7 +344,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
   <section class="screen" id="s-friend" hidden>
     <div class="friend">
       <div>
-        <p class="eyebrow">Your padi don take the test</p>
+        <p class="eyebrow">Your friend took the test</p>
         <h1 id="f-title"></h1>
         <p class="lede" id="f-lede"></p>
         <div class="cta-row">
@@ -335,7 +362,7 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
 
   <footer class="foot">
     <p>Made for Naija, with love and small wahala.</p>
-    <p>Your answers stay for your phone. Nothing dey saved.</p>
+    <p>Your answers stay on your phone. Nothing is saved.</p>
   </footer>
 </div>
 
@@ -346,133 +373,244 @@ h1 .hl{background:var(--ink);color:var(--danfo);padding:0 .1em;-webkit-box-decor
 // Set this to your domain once you host it (e.g. "naijatype.ng"). It prints on every card.
 const SITE_LABEL = '';
 
+// Five traits. A type is your strongest trait plus your second strongest: 5 x 4 = 20 types.
+const TRAITS = [['g','Hustle'],['v','Enjoyment'],['b','Street sense'],['h','Heart'],['m','Mouth']];
+
 const TYPES = {
-  lekki:{no:1,name:'The Lekki Soft Life',card:'LEKKI SOFT LIFE',bg:'#FF9EC2',ink:'#2B0718',sig:'soft',padi:'abuja',wahala:'sapa',
-    slogan:'Soft life na my birthright. Sapa na rumour.',
-    desc:'You no dey enter danfo, you no dey do noise and you no dey "manage". Your account balance na private matter. Your outfits na public property.'},
-  mainland:{no:2,name:'The Mainland Hustler',card:'MAINLAND HUSTLER',bg:'#FFC20E',ink:'#151310',sig:'hustle',padi:'sapa',wahala:'lekki',
-    slogan:'Danfo or nothing. No dulling.',
-    desc:'You wake before the sun and you sabi three shortcuts to every bus stop. Lagos try break you. Now Lagos na your padi.'},
-  techbro:{no:3,name:'The Tech Bro',card:'TECH BRO',bg:'#3E6CFF',ink:'#F4F6FF',sig:'hustle',padi:'japa',wahala:'aunty',
-    slogan:'Dollar don land. Life don make sense.',
-    desc:'Your standup na 3pm because your manager dey California. You talk "let’s circle back" for owambe and nobody understand you.'},
-  japa:{no:4,name:'The Japa Gang',card:'JAPA GANG',bg:'#0B6B4A',ink:'#F3ECD2',sig:'japa',padi:'techbro',wahala:'prayer',
-    slogan:'Abroad dey call. I don pick.',
-    desc:'Your passport don renew, your IELTS don book and your goodbye tweet dey drafts. You love Naija well well. From a safe distance.'},
-  philosopher:{no:5,name:'The Street Philosopher',card:'STREET PHILOSOPHER',bg:'#22307E',ink:'#F8E7B0',sig:'amebo',padi:'corper',wahala:'abuja',
-    slogan:'I sabi everything except my account balance.',
-    desc:'You get thread for every topic and theory for every scandal. Your take correct. Your data don finish.'},
-  abuja:{no:6,name:'The Abuja Connector',card:'ABUJA CONNECTOR',bg:'#7C1735',ink:'#F5C95C',sig:'soft',padi:'lekki',wahala:'philosopher',
-    slogan:'My uncle sabi person wey sabi person.',
-    desc:'You no dey queue. You dey call somebody. Every problem for Naija get phone number, and you don save am.'},
-  prayer:{no:7,name:'The Prayer Warrior',card:'PRAYER WARRIOR',bg:'#F6F3EA',ink:'#1A3FA0',sig:'prayer',padi:'aunty',wahala:'japa',
-    slogan:'God’s time na the best time.',
-    desc:'Your alarm dey set for vigil and your data dey run on faith. Every problem get the same answer: "We go pray about am."'},
-  sapa:{no:8,name:'The Sapa Survivor',card:'SAPA SURVIVOR',bg:'#F2692B',ink:'#1C0D05',sig:'sapa',padi:'mainland',wahala:'lekki',
-    slogan:'Broke but blessed. Mostly broke.',
-    desc:'You fit turn ₦2,000 into one full week of food. Economists suppose study you. Your bank suppose apologise.'},
-  corper:{no:9,name:'The Fresh Corper',card:'FRESH CORPER',bg:'#CDB57D',ink:'#0F3D1E',sig:'sapa',padi:'philosopher',wahala:'aunty',
-    slogan:'Degree for hand. Reality for face.',
-    desc:'You get certificate, khaki and big dreams. Your allawee dey finish before the month start, but your LinkedIn dey shine.'},
-  aunty:{no:10,name:'The Naija Aunty',card:'NAIJA AUNTY',bg:'#5B2A9A',ink:'#FFD23F',sig:'amebo',padi:'prayer',wahala:'corper',
+  softlife:{no:1,d:'gv',name:'The Soft Life Hustler',card:'SOFT LIFE HUSTLER',bg:'#FF9EC2',ink:'#2B0718',
+    slogan:'Grinding now so the soft life comes faster.',
+    desc:'You work like rent is due tomorrow, because you know exactly what the money is for: the trip, the apartment, the life. You’ren’t really chasing money. You’re chasing the version of you that doesn’t have to.',
+    real:'Rest makes you feel guilty unless you have earned it first. Somehow you never feel like you have earned it.',
+    strengths:['Ambitious','Generous when you win','Knows what you want'],
+    blind:'Every purchase becomes a reward, so the savings goal keeps moving.'},
+  quietmoney:{no:2,d:'gb',name:'The Quiet Money',card:'QUIET MONEY',bg:'#C9B27C',ink:'#1E2A12',
+    slogan:'Nobody knows what I do. That’s the plan.',
+    desc:'Nobody is completely sure what you do for a living, and you like it that way. You move in silence, make big decisions alone and only announce things after they’re done. People hear about your new car from someone else.',
+    real:'You don’t fully trust anyone with your plans. Not because they’re bad people, but because you’ve seen what talking too early does.',
+    strengths:['Disciplined','Patient','Unbothered'],
+    blind:'You keep people so far from your plans that they can’t help you either.'},
+  breadwinner:{no:3,d:'gh',name:'The Breadwinner',card:'BREADWINNER',bg:'#F2692B',ink:'#1C0D05',
+    slogan:'Everybody eats when I win.',
+    desc:'Somewhere along the line you became the person everyone calls when money is needed, and you never said no. School fees, hospital bills, rent, weddings. You carry a lot, and you carry it quietly.',
+    real:'Some days you wish someone would ask how you’re doing without a request at the end of the message.',
+    strengths:['Reliable','Selfless','Hardworking'],
+    blind:'You put yourself last on a list you wrote yourself.'},
+  serialceo:{no:4,d:'gm',name:'The Serial CEO',card:'SERIAL CEO',bg:'#3E6CFF',ink:'#F4F6FF',
+    slogan:'CEO of four brands. Launching the fifth on Monday.',
+    desc:'You have had at least three business ideas this year and told everyone about all of them. Your bio has a title, a vision and a link. You genuinely believe in yourself, and that’s half the reason other people believe in you too.',
+    real:'Every new idea is partly a way to never sit still long enough to feel stuck.',
+    strengths:['Bold','Persuasive','Starts things'],
+    blind:'Starting is your talent. Finishing is your homework.'},
+  detty:{no:5,d:'vg',name:'The Detty December',card:'DETTY DECEMBER',bg:'#C8102E',ink:'#FFE9A8',
+    slogan:'I work eleven months for one December.',
+    desc:'You work hard, but there’s no confusion about what it’s for. December is planned while it’s still March: concerts, beach, owambe, flights. You save with intention and spend with joy.',
+    real:'You need something to look forward to, or the months start to feel heavy. The plans are how you keep yourself going.',
+    strengths:['Fun','Motivated','Lives fully'],
+    blind:'January always arrives faster than you budgeted for.'},
+  plug:{no:6,d:'vb',name:'The Plug',card:'THE PLUG',bg:'#00A99D',ink:'#04201D',
+    slogan:'I know a place. And a guy. And a discount.',
+    desc:'You know the better restaurant, the cheaper route and the event that’sn’t on Instagram yet. Your friends don’t plan anything without checking with you first, and the outing is always better when they do.',
+    real:'Being useful is how you make sure you’re always invited.',
+    strengths:['Resourceful','Connected','Always has options'],
+    blind:'You find the perfect spot for everyone else and forget to ask what you actually want.'},
+  owambe:{no:7,d:'vh',name:'The Owambe Spirit',card:'OWAMBE SPIRIT',bg:'#E8A33D',ink:'#2A1600',
+    slogan:'If there’s jollof and music, I’m on my way.',
+    desc:'Any gathering gets better once you arrive. You remember birthdays, show up to things you weren’t sure you could make, and dance like the celebrant owes you money. People feel welcome around you without knowing why.',
+    real:'You don’t like being alone with your thoughts for too long. Crowds are easier.',
+    strengths:['Warm','Fun','Makes people feel seen'],
+    blind:'You give your best energy to the room and keep very little for yourself.'},
+  maincharacter:{no:8,d:'vm',name:'The Main Character',card:'MAIN CHARACTER',bg:'#151310',ink:'#FF7AB6',
+    slogan:'The camera loves me. The group chat tolerates me.',
+    desc:'You don’t enter rooms, you arrive. Your outfits are planned, your stories are dramatic and your WhatsApp status is a full series. Life is more fun with you in it, and you know it.',
+    real:'You care far more about what people think than you let anyone believe.',
+    strengths:['Confident','Entertaining','Expressive'],
+    blind:'Not every moment needs an audience, but you rarely test that.'},
+  longgame:{no:9,d:'bg',name:'The Long Game',card:'THE LONG GAME',bg:'#22307E',ink:'#F8E7B0',
+    slogan:'Plan A, plan B, plan C and a backup passport.',
+    desc:'You have a five-year plan, a backup plan and a note on your phone called "options". You research before you buy and compare before you commit. You’re probably a few steps into a move nobody knows about yet.',
+    real:'You plan everything because uncertainty genuinely scares you, not because you enjoy planning.',
+    strengths:['Strategic','Patient','Prepared'],
+    blind:'You can plan for so long that the right moment passes while you’re still checking.'},
+  budgetballer:{no:10,d:'bv',name:'The Budget Baller',card:'BUDGET BALLER',bg:'#9BE15D',ink:'#12300A',
+    slogan:'Soft life, but make it sensible.',
+    desc:'You enjoy life, but never on credit. You know the happy hour times, the free events and the exact day the sale starts. People think you spent a lot. You didn’t.',
+    real:'You’ve been broke before and you never want to feel that again. Every smart choice traces back to that.',
+    strengths:['Smart with money','Fun without waste','Practical'],
+    blind:'You calculate so carefully that sometimes you miss the moment you were saving for.'},
+  therapist:{no:11,d:'bh',name:'The Group Therapist',card:'GROUP THERAPIST',bg:'#CDB6F7',ink:'#24104F',
+    slogan:'Everyone’s problems come to me. Mine stay in drafts.',
+    desc:'You’re the friend people text at 11pm with "are you awake?". You listen properly, ask the one question that matters and give advice that’s annoyingly correct. Half your contacts are people you talked out of a bad decision.',
+    real:'You’re very good at solving everyone’s problems and just as good at hiding your own.',
+    strengths:['Wise','Calm','Trustworthy'],
+    blind:'You give advice you never take.'},
+  philosopher:{no:12,d:'bm',name:'The Street Philosopher',card:'STREET PHILOSOPHER',bg:'#3B3630',ink:'#F3ECD2',
+    slogan:'I have a theory about that.',
+    desc:'You have a theory about everything: the economy, relationships, why your neighbour’s car is always clean. You read the full article before you comment. You talk long, but people listen because you’re usually right.',
+    real:'Overthinking is your hobby and your problem. Your brain doesn’t really switch off.',
+    strengths:['Insightful','Curious','Sharp'],
+    blind:'Being right and being kind aren’t always the same thing.'},
+  familyceo:{no:13,d:'hg',name:'The Family CEO',card:'FAMILY CEO',bg:'#7C1735',ink:'#F5C95C',
+    slogan:'If I don’t organise it, it won’t happen.',
+    desc:'You collect the contributions, book the venue and chase the replies on the family group. People complain about your reminders and then thank you at the event. Every circle you’re in runs a little smoother because of you.',
+    real:'You’re tired of being the responsible one, but you don’t trust anyone else to do it properly.',
+    strengths:['Organised','Dependable','Natural leader'],
+    blind:'Not everything needs managing. Especially people.'},
+  rideordie:{no:14,d:'hv',name:'The Ride or Die',card:'RIDE OR DIE',bg:'#0B6B4A',ink:'#F3ECD2',
+    slogan:'Your problem is my problem. Your party is my party.',
+    desc:'Once you claim someone as your person, it’s for life. You fight their battles, celebrate their wins louder than they do and show up with food when things are bad. Friends from primary school still call you.',
+    real:'You fear being left behind more than you show. Loyalty is how you make sure people stay.',
+    strengths:['Loyal','Fun','Protective'],
+    blind:'You stay in friendships long after they stop giving anything back.'},
+  peacemaker:{no:15,d:'hb',name:'The Peacemaker',card:'PEACEMAKER',bg:'#F6F3EA',ink:'#1A3FA0',
+    slogan:'Let’s settle this like family.',
+    desc:'When people argue, they look at you to settle it. You see both sides, you never raise your voice and you know exactly what to say to cool things down. People feel safe around you.',
+    real:'You avoid conflict so well that your own feelings rarely get a turn.',
+    strengths:['Patient','Fair','Calming'],
+    blind:'Keeping the peace isn’t the same as being at peace.'},
+  aunty:{no:16,d:'hm',name:'The Naija Aunty',card:'NAIJA AUNTY',bg:'#5B2A9A',ink:'#FFD23F',
     slogan:'Have you eaten? When are you marrying?',
-    desc:'You carry cooler of jollof go every function and opinion go every life decision. Everybody fear your questions. Everybody chop your food.'}
+    desc:'You care loudly. You will ask if they have eaten, when they’re getting married and why they look thin, all in one sentence. Your love comes with opinions, and everyone secretly relies on both. Age and gender optional.',
+    real:'Your questions are how you show you’re paying attention. You notice everything.',
+    strengths:['Caring','Honest','Generous'],
+    blind:'Not every opinion needs to be said out loud. You’ve heard this before.'},
+  smooth:{no:17,d:'mg',name:'The Smooth Talker',card:'SMOOTH TALKER',bg:'#6B3E1F',ink:'#FFE2B8',
+    slogan:'I could sell sand in the Sahara.',
+    desc:'You can talk your way into a room, a deal or a discount. You read people quickly and know which words will land. If you sold sand, people would ask about delivery.',
+    real:'You’re very good at being liked. You’re less sure people know the real you.',
+    strengths:['Charming','Persuasive','Quick-thinking'],
+    blind:'Talking your way out of trouble means you rarely sit with the consequences.'},
+  comedian:{no:18,d:'mv',name:'The Group Chat Comedian',card:'GROUP CHAT COMEDIAN',bg:'#6EC1FF',ink:'#0A2238',
+    slogan:'Every situation is content.',
+    desc:'You have the perfect meme for every message, a voice note that ends every argument and a nickname for everyone. The group chat goes quiet when you’re busy, and everyone notices.',
+    real:'Jokes are how you handle the things you don’t want to talk about seriously.',
+    strengths:['Funny','Quick','Lightens any room'],
+    blind:'Not every serious moment needs a punchline.'},
+  debater:{no:19,d:'mb',name:'The Debater',card:'THE DEBATER',bg:'#A61B6B',ink:'#FFE3F1',
+    slogan:'I’m not arguing. I’m explaining why you’re wrong.',
+    desc:'You bring screenshots, dates and receipts to casual conversations. People hate debating you and then quietly agree with you a week later. You can’t let a wrong thing slide.',
+    real:'You need things to make sense. Unfairness genuinely bothers you, which is why you can’t let it go.',
+    strengths:['Sharp','Principled','Fearless'],
+    blind:'Winning the argument can cost you the relationship.'},
+  amebo:{no:20,d:'mh',name:'The Amebo',card:'THE AMEBO',bg:'#FFD9A0',ink:'#5A1E00',
+    slogan:'I don’t gossip. I share updates.',
+    desc:'You always know first: who’s dating, who’s travelling, who’s expecting, who’s fighting. You don’t gossip to hurt anyone. You just believe information should move freely, preferably through you.',
+    real:'You know everyone’s story because you genuinely care about people. You just can’t keep it to yourself.',
+    strengths:['Observant','Social','Well-connected'],
+    blind:'Not every story you know is yours to tell.'}
 };
 const ORDER = Object.keys(TYPES);
-const TRAITS = [['hustle','Hustle'],['soft','Soft life'],['japa','Japa readiness'],['amebo','Amebo level'],['prayer','Prayer power'],['sapa','Sapa exposure']];
-const STOPS = ['Ojota','Maryland','Anthony','Obanikoro','Palmgrove','Onipanu','Fadeyi','Jibowu','Yaba','Obalende'];
-const SHOUTS = ['"Enter with your change o!"','"Maryland! Maryland!"','"Shift, shift, make we enter!"','"Who never pay?"','"No dey look me like that."','"Hold body!"','"Owner of this change!"','"Na one way!"','"Oya, almost there!"','"Obalende! Last stop!"'];
+const BY_DIMS = Object.fromEntries(ORDER.map(k => [TYPES[k].d, k]));
+const STOPS = ['Ketu','Ojota','Maryland','Anthony','Obanikoro','Palmgrove','Onipanu','Fadeyi','Jibowu','Yaba','CMS','Obalende'];
+const SHOUTS = ['"Enter with your change!"','"Ojota! Ojota!"','"Maryland! Maryland!"','"Shift small, let us enter."','"Who has not paid?"','"Hold body!"','"Owner of this change!"','"One way!"','"Driver, I dey drop!"','"Almost there!"','"Last two stops!"','"Obalende! Last stop!"'];
 
+// Every question has one answer per trait, so every option fits someone, wherever they live.
 const QUESTIONS = [
-  {q:'Na Friday night. Where you dey?',o:[
-    {t:'Lounge with my people. Outfit don set.',a:{lekki:3,abuja:1},s:{soft:14,amebo:4}},
-    {t:'Owambe. I no even know the celebrant.',a:{aunty:2,mainland:2,sapa:1},s:{amebo:12,hustle:4}},
-    {t:'Laptop open. Deadline no dey sleep.',a:{techbro:3,mainland:1},s:{hustle:12}},
-    {t:'Vigil or night prayer. Fire for fire.',a:{prayer:3,aunty:1},s:{prayer:18}},
-    {t:'Inside house. Data dey, food dey, peace dey.',a:{corper:2,sapa:1,japa:1},s:{sapa:6}}]},
-  {q:'How money dey take enter your hand?',o:[
-    {t:'Salary, plus small side hustle wey nobody know.',a:{mainland:3,aunty:1},s:{hustle:14}},
-    {t:'Remote job. I dey earn for dollar.',a:{techbro:3,lekki:1},s:{soft:8,hustle:4}},
-    {t:'Connection. Na who you know.',a:{abuja:3,lekki:1},s:{soft:6,amebo:6}},
-    {t:'Money? I still dey wait for alert.',a:{sapa:3,corper:2,philosopher:1},s:{sapa:18,prayer:4}},
-    {t:'I dey work abroad. Rent and tax dey chop am.',a:{japa:3,techbro:1},s:{japa:16,hustle:6}}]},
-  {q:'How you dey take move around?',o:[
-    {t:'My own motor. AC must blow.',a:{lekki:2,abuja:2,aunty:1},s:{soft:10}},
-    {t:'Bolt or Uber. Public transport na for emergency.',a:{techbro:2,lekki:1,corper:1},s:{soft:6}},
-    {t:'Danfo, keke, okada. Whichever come first.',a:{mainland:3,sapa:2,philosopher:1},s:{hustle:10,sapa:8}},
-    {t:'Train and bus abroad. Na the cold dey worry me.',a:{japa:3},s:{japa:20}},
-    {t:'Trekking. I call am free exercise.',a:{sapa:2,corper:2,philosopher:1},s:{sapa:12}}]},
-  {q:'Light don go for night. Wetin you do?',o:[
-    {t:'Solar don carry am. I no even notice.',a:{techbro:2,lekki:2,abuja:1},s:{soft:10}},
-    {t:'Open X. Write long thread about this country.',a:{philosopher:3,japa:1},s:{amebo:10,japa:6}},
-    {t:'Pull gen. Fuel money don finish me.',a:{mainland:2,aunty:2,sapa:1},s:{hustle:6,sapa:8}},
-    {t:'Sleep. Light go come when e wan come.',a:{corper:2,sapa:2,prayer:1},s:{sapa:8,prayer:6}},
-    {t:'Light no dey go where I dey. I dey pray for una.',a:{japa:3,prayer:1},s:{japa:14,prayer:4}}]},
-  {q:'Which food fit make you forgive person?',o:[
-    {t:'Party jollof with big turkey.',a:{aunty:2,corper:2,mainland:1},s:{amebo:4}},
-    {t:'Brunch. Pancakes and mimosa.',a:{lekki:3,techbro:1},s:{soft:14}},
-    {t:'Suya and pepper soup with the oga dem.',a:{abuja:3,philosopher:1},s:{amebo:6}},
-    {t:'Indomie and egg. Na God dey keep me.',a:{sapa:3,corper:1},s:{sapa:14,prayer:4}},
-    {t:'Swallow and soup from home. I fit cry.',a:{japa:2,mainland:1,aunty:1},s:{japa:8}}]},
-  {q:'Person ask you "How work?" You go talk:',o:[
-    {t:'We move! No dulling.',a:{mainland:3,corper:1},s:{hustle:16}},
-    {t:'God dey. Na Him dey run am.',a:{prayer:3,aunty:1},s:{prayer:16}},
-    {t:'Dollar dey land. I no fit complain.',a:{techbro:3},s:{soft:6,hustle:4}},
-    {t:'I dey plan my next move. Abroad or bigger job.',a:{japa:3,philosopher:1},s:{japa:20}},
-    {t:'We dey manage am like that.',a:{sapa:3,corper:1},s:{sapa:10,prayer:4}}]},
-  {q:'Wetin be your WhatsApp DP?',o:[
-    {t:'Studio shoot. Ring light and everything.',a:{lekki:2,abuja:1},s:{soft:10}},
-    {t:'Scripture quote on purple background.',a:{prayer:3,aunty:1},s:{prayer:14}},
-    {t:'Me for front of foreign airport.',a:{japa:2,techbro:1},s:{japa:14}},
-    {t:'Black and white picture of me dey think.',a:{philosopher:3,corper:1},s:{amebo:4}},
-    {t:'Picture of my pikin or the whole family.',a:{aunty:3,prayer:1},s:{amebo:6}}]},
-  {q:'Your life goal for one line?',o:[
-    {t:'Land, house and G-Wagon for compound.',a:{lekki:2,abuja:2},s:{soft:10}},
-    {t:'Get citizenship. Come home only for December.',a:{japa:3},s:{japa:22}},
-    {t:'Build something wey go outlive me.',a:{techbro:2,philosopher:2,mainland:1},s:{hustle:12}},
-    {t:'First job. Any job. Abeg.',a:{corper:3,sapa:2},s:{sapa:12,hustle:4}},
-    {t:'See my children settle well.',a:{aunty:3,prayer:1},s:{prayer:6}}]},
-  {q:'For family WhatsApp group, who you be?',o:[
-    {t:'I dey post "Good morning" and forwarded messages.',a:{aunty:3,prayer:2},s:{prayer:8,amebo:10}},
-    {t:'I dey read everything. I no dey reply.',a:{japa:1,corper:2,lekki:1},s:{amebo:6}},
-    {t:'Na me dem dey ask for money.',a:{techbro:2,abuja:2,japa:2},s:{hustle:6}},
-    {t:'I don mute am since 2021.',a:{lekki:2,sapa:1,corper:1},s:{soft:4}},
-    {t:'Na me dey start argument about politics.',a:{philosopher:3,abuja:1},s:{amebo:12}}]},
-  {q:'Which one be your signature line?',o:[
-    {t:'"E go better."',a:{sapa:2,corper:2,prayer:1},s:{prayer:6}},
-    {t:'"No gree for anybody."',a:{mainland:3,abuja:1},s:{hustle:10}},
-    {t:'"You know who my uncle be?"',a:{abuja:3,lekki:1},s:{soft:6}},
-    {t:'"When you wan marry?"',a:{aunty:3},s:{amebo:14}},
-    {t:'"Detty December, I dey come!"',a:{japa:3,lekki:1},s:{japa:10,soft:4}}]}
+  {q:'A big alert lands you weren’t expecting. First move?',o:[
+    {t:'Save it and tell nobody.',s:{b:3,g:1}},
+    {t:'Treat myself. I deserve this.',s:{v:3}},
+    {t:'Sort out family and friends first.',s:{h:3}},
+    {t:'Put it into something that makes more.',s:{g:3,b:1}},
+    {t:'Screenshot the alert. The people must know.',s:{m:3,v:1}}]},
+  {q:'The group chat is popping at 1am. Where are you?',o:[
+    {t:'Asleep. I have things to do tomorrow.',s:{g:3}},
+    {t:'I started it.',s:{m:3}},
+    {t:'Reading everything. Saying nothing.',s:{b:3}},
+    {t:'Sending memes and voice notes.',s:{v:3,m:1}},
+    {t:'Checking that everyone is actually okay.',s:{h:3}}]},
+  {q:'A friend texts: "I need to tell you something." Your first thought?',o:[
+    {t:'"Are you okay? Where are you?"',s:{h:3}},
+    {t:'"Finally. Gist."',s:{m:3}},
+    {t:'"Please let it be good news. I’m not in the mood."',s:{v:3}},
+    {t:'I’m already running scenarios in my head.',s:{b:3}},
+    {t:'"Is it a business idea? I’m listening."',s:{g:3}}]},
+  {q:'Your idea of a perfect weekend:',o:[
+    {t:'Brunch, an outing, then wherever the night goes.',s:{v:3}},
+    {t:'Home alone. Recharge. Plan the week.',s:{b:3}},
+    {t:'Catching up on work or my side project.',s:{g:3}},
+    {t:'Out with people where the gist beats the food.',s:{m:3,v:1}},
+    {t:'Visiting family or hosting my people.',s:{h:3}}]},
+  {q:'At a party or owambe, where do people find you?',o:[
+    {t:'At the table that knows everybody’s business.',s:{m:3}},
+    {t:'Helping the hosts. Somebody has to share the food.',s:{h:3}},
+    {t:'On the dance floor.',s:{v:3}},
+    {t:'Networking. Every party is an opportunity.',s:{g:3}},
+    {t:'Near the exit, takeaway pack already secured.',s:{b:3}}]},
+  {q:'Someone owes you money and has gone quiet. You:',o:[
+    {t:'Send a polite, firm reminder. With my account number.',s:{g:3,b:1}},
+    {t:'Forget it. Life is too short.',s:{v:3}},
+    {t:'Post a very specific status. They’ll see it.',s:{m:3}},
+    {t:'Let it go. Maybe they’re going through something.',s:{h:3}},
+    {t:'Nothing. I wrote it off the day I lent it.',s:{b:3}}]},
+  {q:'What do people usually come to you for?',o:[
+    {t:'Advice. I’ve already thought it through.',s:{b:3,h:1}},
+    {t:'Opportunities. Jobs, links, connections.',s:{g:3}},
+    {t:'The latest gist.',s:{m:3}},
+    {t:'Comfort. I’m the safe space.',s:{h:3}},
+    {t:'Plans. I know where the fun is.',s:{v:3}}]},
+  {q:'Your screen-time report would expose you for:',o:[
+    {t:'Instagram, TikTok and music.',s:{v:3}},
+    {t:'X arguments and WhatsApp statuses.',s:{m:3}},
+    {t:'Long calls and chats with my people.',s:{h:3}},
+    {t:'YouTube explainers and research rabbit holes.',s:{b:3}},
+    {t:'Email, LinkedIn and banking apps.',s:{g:3}}]},
+  {q:'Plans get cancelled at the last minute. You:',o:[
+    {t:'Secretly relieved. Home was always the plan.',s:{b:3}},
+    {t:'Check that the person who cancelled is okay.',s:{h:3}},
+    {t:'Already texting someone else. The day must happen.',s:{v:3}},
+    {t:'Let the group know exactly who cancelled.',s:{m:3}},
+    {t:'Good. More time to get things done.',s:{g:3}}]},
+  {q:'In a heated argument, you’re the one who:',o:[
+    {t:'Tries to calm everybody down.',s:{h:3}},
+    {t:'Brings receipts and screenshots.',s:{b:3,m:1}},
+    {t:'Leaves. I have better things to do.',s:{g:3}},
+    {t:'Cracks a joke to break the tension.',s:{v:3,m:1}},
+    {t:'Wins. Eventually. Loudly.',s:{m:3}}]},
+  {q:'Which of these would genuinely hurt the most?',o:[
+    {t:'Being ignored when I’m talking.',s:{m:3}},
+    {t:'Being in the same place five years from now.',s:{g:3}},
+    {t:'Losing my people.',s:{h:3}},
+    {t:'Being fooled or taken advantage of.',s:{b:3}},
+    {t:'A life with no fun, travel or good food.',s:{v:3}}]},
+  {q:'Your friends would describe you in one word as:',o:[
+    {t:'Loyal.',s:{h:3}},
+    {t:'Driven.',s:{g:3}},
+    {t:'Unfiltered.',s:{m:3}},
+    {t:'Wise.',s:{b:3}},
+    {t:'Fun.',s:{v:3}}]}
 ];
 
-const MAXPTS = Object.fromEntries(ORDER.map(k => [k, QUESTIONS.reduce((s,q) => s + Math.max(...q.o.map(o => o.a[k]||0)), 0)]));
-const MAXRAW = Object.fromEntries(TRAITS.map(([k]) => [k, QUESTIONS.reduce((s,q) => s + Math.max(...q.o.map(o => o.s[k]||0)), 0)]));
+const DIMS = TRAITS.map(([k]) => k);
+const MAXRAW = Math.max(...DIMS.map(k => QUESTIONS.reduce((s,q) => s + Math.max(...q.o.map(o => o.s[k]||0)), 0)));
 const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
 
 function score(answers){
-  const pts = Object.fromEntries(ORDER.map(k => [k,0]));
-  const last = Object.fromEntries(ORDER.map(k => [k,-1]));
-  const raw = Object.fromEntries(TRAITS.map(([k]) => [k,0]));
+  const raw = Object.fromEntries(DIMS.map(k => [k,0]));
+  const last = Object.fromEntries(DIMS.map(k => [k,-1]));
   answers.forEach((ai,qi) => {
     const o = QUESTIONS[qi].o[ai];
-    for (const k in o.a){ pts[k] += o.a[k]; last[k] = qi; }
-    for (const k in o.s) raw[k] += o.s[k];
+    for (const k in o.s){ raw[k] += o.s[k]; if (o.s[k] >= 3) last[k] = qi; }
   });
-  const key = ORDER.slice().sort((x,y) => (pts[y]/MAXPTS[y]) - (pts[x]/MAXPTS[x]) || last[y] - last[x])[0];
-  const match = clamp(Math.round(50 + 49 * pts[key] / MAXPTS[key]), 51, 99);
-  const traits = TRAITS.map(([k]) => clamp(Math.round(6 + 90 * raw[k] / MAXRAW[k]), 3, 99));
-  const si = TRAITS.findIndex(([k]) => k === TYPES[key].sig);
-  traits[si] = Math.max(traits[si], 72 + (pts[key] % 9) * 3);
+  const rank = DIMS.slice().sort((x,y) => raw[y] - raw[x] || last[y] - last[x]);
+  const key = BY_DIMS[rank[0] + rank[1]];
+  const total = DIMS.reduce((s,k) => s + raw[k], 0) || 1;
+  const match = clamp(Math.round(52 + 75 * ((raw[rank[0]] + raw[rank[1]]) / total - .33)), 60, 98);
+  const traits = DIMS.map(k => clamp(Math.round(6 + 93 * Math.min(1, 1.6 * raw[k] / MAXRAW)), 3, 99));
   return {key, match, traits};
+}
+const padiOf = key => BY_DIMS[TYPES[key].d[1] + TYPES[key].d[0]];
+function wahalaOf(r){
+  const low = DIMS.map((k,i) => [k, r.traits[i]]).sort((a,b) => a[1] - b[1]).map(([k]) => k);
+  const own = TYPES[r.key].d;
+  const pair = low.filter(k => !own.includes(k)).slice(0,2).join('');
+  return BY_DIMS[pair];
 }
 const encode = r => [r.key, r.match, ...r.traits].join('-');
 function decode(h){
   const p = (h||'').split('-');
-  if (p.length !== 8 || !TYPES[p[0]]) return null;
+  if (p.length !== 2 + DIMS.length || !TYPES[p[0]]) return null;
   const n = p.slice(1).map(Number);
   if (n.some(v => !Number.isInteger(v))) return null;
-  return {key:p[0], match:clamp(n[0],51,99), traits:n.slice(1).map(v => clamp(v,0,99))};
+  return {key:p[0], match:clamp(n[0],60,98), traits:n.slice(1).map(v => clamp(v,0,99))};
 }
 
 /* ---------- card drawing ---------- */
@@ -525,11 +663,11 @@ function drawCard(r){
 
   x.fillStyle = t.ink; x.textBaseline = 'alphabetic';
   x.font = `40px ${D}`; x.fillText('NAIJA TYPE', P, 116);
-  x.font = `800 30px ${B}`; x.textAlign = 'right'; x.fillText(`No. ${String(t.no).padStart(2,'0')} / 10`, W-P, 112); x.textAlign = 'left';
+  x.font = `800 30px ${B}`; x.textAlign = 'right'; x.fillText(`No. ${String(t.no).padStart(2,'0')} / 20`, W-P, 112); x.textAlign = 'left';
   x.fillRect(P, 144, IW, 5);
 
   x.font = `800 28px ${B}`; spacing(x,'5px');
-  x.fillText('I BE THE', P, 210);
+  x.fillText('MY NAIJA TYPE', P, 210);
   x.textAlign = 'right'; x.fillText(`${r.match}% MATCH`, W-P, 210); x.textAlign = 'left'; spacing(x,'0px');
 
   // top block: name + slogan banner, centered in the space above the stats
@@ -556,16 +694,17 @@ function drawCard(r){
   TRAITS.forEach(([k,label], i) => {
     const col = i % 2, row = Math.floor(i / 2);
     const tx = P + col * (colW + 32), tyy = statTop + row * 82;
+    const w = i === TRAITS.length - 1 && i % 2 === 0 ? IW : colW;
     x.fillStyle = t.ink;
     x.font = `700 27px ${B}`; x.fillText(label, tx, tyy + 26);
-    x.font = `800 27px ${B}`; x.textAlign = 'right'; x.fillText(String(r.traits[i]), tx + colW, tyy + 26); x.textAlign = 'left';
-    x.lineWidth = 4; x.strokeStyle = t.ink; rrect(x, tx + 2, tyy + 40, colW - 4, 24, 4); x.stroke();
-    x.fillRect(tx + 2, tyy + 40, (colW - 4) * r.traits[i] / 100, 24);
+    x.font = `800 27px ${B}`; x.textAlign = 'right'; x.fillText(String(r.traits[i]), tx + w, tyy + 26); x.textAlign = 'left';
+    x.lineWidth = 4; x.strokeStyle = t.ink; rrect(x, tx + 2, tyy + 40, w - 4, 24, 4); x.stroke();
+    x.fillRect(tx + 2, tyy + 40, (w - 4) * r.traits[i] / 100, 24);
   });
 
   // padi / wahala
   const pTop = 1030, boxW = (IW - 24) / 2, boxH = 104;
-  [['MY PADI', TYPES[t.padi].card], ['MY WAHALA', TYPES[t.wahala].card]].forEach(([lab, name], i) => {
+  [['MY PADI', TYPES[padiOf(r.key)].card], ['MY WAHALA', TYPES[wahalaOf(r)].card]].forEach(([lab, name], i) => {
     const bx = P + i * (boxW + 24);
     x.lineWidth = 4; x.strokeStyle = t.ink; rrect(x, bx + 2, pTop + 2, boxW - 4, boxH - 4, 14); x.stroke();
     x.fillStyle = t.ink; x.font = `800 21px ${B}`; spacing(x,'4px'); x.fillText(lab, bx + 24, pTop + 38); spacing(x,'0px');
@@ -642,6 +781,7 @@ const Sound = (() => {
   };
 })();
 function buzz(ms){ try { if (navigator.vibrate) navigator.vibrate(ms); } catch(e){} }
+function track(n, p){ try{ if(typeof window.va==='function') window.va('event',{name:n,...(p||{})}); }catch(e){} }
 
 /* ---------- UI ---------- */
 const $ = s => document.querySelector(s);
@@ -673,7 +813,7 @@ function miniCard(k, opts = {}){
 
 function buildStatic(){
   const fan = $('#fan');
-  ['japa','techbro','aunty'].forEach(k => fan.appendChild(miniCard(k)));
+  ['detty','serialceo','aunty'].forEach(k => fan.appendChild(miniCard(k)));
   const slogans = ['No condition is permanent','God’s time is the best','Eko o ni baje','No gree for anybody','Who know tomorrow','No food for lazy man','Man must wack','E go better','Sapa na temporary','Shine your eye'];
   const run = slogans.map(s => `<span>${s.toUpperCase()}</span>`).join('');
   $('#marquee').innerHTML = run + run;
@@ -689,14 +829,14 @@ function renderRoute(){
   route.querySelectorAll('.stop').forEach(s => s.remove());
   STOPS.forEach((_, i) => {
     const d = document.createElement('div'); d.className = 'stop' + (i < qi ? ' done' : '');
-    d.style.left = (i / 9 * 100) + '%'; route.insertBefore(d, $('#bus'));
+    d.style.left = (i / (STOPS.length - 1) * 100) + '%'; route.insertBefore(d, $('#bus'));
   });
-  $('#bus').style.left = (qi / 9 * 100) + '%';
+  $('#bus').style.left = (qi / (STOPS.length - 1) * 100) + '%';
 }
 
 function renderQuestion(){
   const q = QUESTIONS[qi];
-  $('#q-stop').textContent = `Stop ${String(qi+1).padStart(2,'0')} of 10 · ${STOPS[qi]}`;
+  $('#q-stop').textContent = `Stop ${String(qi+1).padStart(2,'0')} of ${QUESTIONS.length} · ${STOPS[qi]}`;
   $('#q-shout').textContent = SHOUTS[qi];
   $('#q-text').textContent = q.q;
   const box = $('#q-opts'); box.innerHTML = '';
@@ -718,6 +858,7 @@ function pick(i){
   if (locked) return;
   locked = true; answers[qi] = i;
   Sound.play('pick'); buzz(12);
+  track('answer_picked', {question_number: qi + 1, stop: STOPS[qi], answer: QUESTIONS[qi].o[i].t.slice(0,80)});
   document.querySelectorAll('.opt').forEach((b, j) => b.classList.toggle('picked', j === i));
   setTimeout(() => {
     locked = false;
@@ -727,12 +868,14 @@ function pick(i){
 
 function startQuiz(){
   answers = []; qi = 0; locked = false;
+  track('quiz_start');
   show('s-quiz'); renderQuestion();
 }
 
 async function finish(){
   show('s-load');
   const res = score(answers);
+  track('quiz_complete', {result_type: res.key, match_percent: res.match});
   const minWait = new Promise(r => setTimeout(r, reduced ? 300 : 1500));
   await fontsReady; await minWait;
   const h = encode(res); store('own', h); setHash(h);
@@ -746,7 +889,7 @@ function shareUrl(r){
 }
 function shareText(r){
   const t = TYPES[r.key], url = shareUrl(r);
-  return `I be ${t.name} (${r.match}% match) 😭\n“${t.slogan}”\n\nWetin be your own Naija Type?${url ? ' ' + url : ''}`;
+  return `I’m ${t.name} (${r.match}% match) 😭\n“${t.slogan}”\n\nWetin be your own Naija Type?${url ? ' ' + url : ''}`;
 }
 
 async function showResult(r, animate){
@@ -761,10 +904,14 @@ async function showResult(r, animate){
   $('#r-match').textContent = `${r.match}% MATCH`;
   $('#r-slogan').textContent = `“${t.slogan}”`;
   $('#r-desc').textContent = t.desc;
-  $('#r-padi').textContent = TYPES[t.padi].name;
-  $('#r-padi-note').textContent = `Tag your padi wey be ${TYPES[t.padi].name.replace('The ','')}.`;
-  $('#r-wahala').textContent = TYPES[t.wahala].name;
-  $('#r-wahala-note').textContent = `Una two no go ever gree. Tag dem anyway.`;
+  $('#r-real').textContent = t.real;
+  $('#r-blind').textContent = t.blind;
+  const st = $('#r-strengths'); st.innerHTML = '';
+  t.strengths.forEach(w => { const li = document.createElement('li'); li.textContent = w; st.appendChild(li); });
+  $('#r-padi').textContent = TYPES[padiOf(r.key)].name;
+  $('#r-padi-note').textContent = 'Same traits, different order. You get each other.';
+  $('#r-wahala').textContent = TYPES[wahalaOf(r)].name;
+  $('#r-wahala-note').textContent = 'Strong exactly where you are weakest. Tag them anyway.';
   const ul = $('#r-meters'); ul.innerHTML = '';
   TRAITS.forEach(([, label], i) => {
     const li = document.createElement('li'); li.className = 'meter';
@@ -777,7 +924,7 @@ async function showResult(r, animate){
   $('#share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText(r));
   $('#share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText(r));
   $('#linkbox').hidden = true;
-  $('#types-title').textContent = 'All 10 Naija Types';
+  $('#types-title').textContent = 'All 20 Naija Types';
   renderTypes(r.key, 'YOU');
   show('s-result');
   img.classList.remove('slap'); if (animate){ void img.offsetWidth; img.classList.add('slap'); }
@@ -792,10 +939,11 @@ async function showFriend(r){
   const c = drawCard(r);
   $('#f-img').src = c.toDataURL('image/png');
   $('#f-img').alt = `Your friend's Naija Type card: ${t.name}`;
-  $('#f-title').textContent = `Your padi na ${t.name}.`;
-  $('#f-lede').textContent = `${r.match}% match. "${t.slogan}" Answer 10 questions and see whether you better pass am.`;
-  $('#types-title').textContent = 'All 10 Naija Types';
+  $('#f-title').textContent = `Your friend is ${t.name}.`;
+  $('#f-lede').textContent = `${r.match}% match. "${t.slogan}" Answer 12 questions and find out yours.`;
+  $('#types-title').textContent = 'All 20 Naija Types';
   renderTypes(r.key, 'YOUR PADI');
+  track('friend_result_viewed', {result_type: r.key, match_percent: r.match});
   show('s-friend');
 }
 
@@ -812,12 +960,12 @@ async function saveCard(){
   if (!cardCanvas || !current) return;
   const name = `naija-type-${current.key}.png`;
   const blob = await new Promise(r => cardCanvas.toBlob(r, 'image/png'));
-  if (!blob) { toast('Long-press the card to save am.'); return; }
+  if (!blob) { toast('Long-press the card to save it.'); return; }
   if (downloads){
-    try { await downloads.save({filename:name, data:blob}); Sound.play('success'); toast('Card don save. Go post am.'); }
+    try { await downloads.save({filename:name, data:blob}); Sound.play('success'); track('card_saved', {type: current.key}); toast('Card saved. Go post it.'); }
     catch(e){
       if (e && e.code === 'declined') return;
-      toast(e && e.code === 'rate_limited' ? 'Wait small, then try again.' : 'Save no work here. Long-press the card to save am.');
+      toast(e && e.code === 'rate_limited' ? 'Wait a moment, then try again.' : 'Saving does not work here. Long-press the card instead.');
     }
     return;
   }
@@ -832,16 +980,16 @@ async function saveCard(){
   a.href = URL.createObjectURL(blob); a.download = name;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-  toast('If the download no start, long-press the card to save am.');
+  toast('If the download does not start, long-press the card to save it.');
 }
 
 async function copyLink(){
   if (!current) return;
   const url = shareUrl(current) || shareText(current);
-  try { await navigator.clipboard.writeText(url); Sound.play('success'); toast('Link don copy. Go paste am for group chat.'); }
+  try { await navigator.clipboard.writeText(url); Sound.play('success'); track('link_copied', {type: current?.key}); toast('Link copied. Paste it in the group chat.'); }
   catch(e){
     const box = $('#linkbox'); box.value = url; box.hidden = false; box.focus(); box.select();
-    toast('Copy no work here. The link dey the box. Select am and copy.');
+    toast('Copying does not work here. The link is in the box below.');
   }
 }
 
@@ -867,6 +1015,10 @@ function renderSound(){
 }
 $('#sound').addEventListener('click', () => { Sound.set(!Sound.on); renderSound(); Sound.play('tap'); });
 document.addEventListener('click', e => { const b = e.target.closest('[data-sfx]'); if (b) Sound.play(b.dataset.sfx); });
+document.addEventListener('click', e => {
+  if (e.target.closest('#share-x')) track('result_shared_x', {result_type: current?.key});
+  if (e.target.closest('#share-wa')) track('result_shared_whatsapp', {result_type: current?.key});
+});
 renderSound();
 buildStatic();
 (function boot(){
@@ -876,3 +1028,6 @@ buildStatic();
   if (recall('own') === h) showResult(r, false); else showFriend(r);
 })();
 </script>
+
+</body>
+</html>
