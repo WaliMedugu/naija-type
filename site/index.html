@@ -786,7 +786,7 @@ function track(n, p){ try{ if(typeof window.va==='function') window.va('event',{
 /* ---------- UI ---------- */
 const $ = s => document.querySelector(s);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-let answers = [], qi = 0, locked = false, current = null, cardCanvas = null;
+let answers = [], qi = 0, locked = false, current = null, cardCanvas = null, cardFile = null;
 
 function store(k, v){ try { v == null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch(e){} }
 function recall(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
@@ -897,6 +897,8 @@ async function showResult(r, animate){
   const t = TYPES[r.key];
   await fontsReady;
   cardCanvas = drawCard(r);
+  cardFile = null;
+  cardCanvas.toBlob(b => { if (b && current === r) cardFile = new File([b], `naija-type-${r.key}.png`, {type:'image/png'}); }, 'image/png');
   const img = $('#r-img');
   img.src = cardCanvas.toDataURL('image/png');
   img.alt = `Naija Type card: ${t.name}, ${r.match}% match. "${t.slogan}"`;
@@ -1015,10 +1017,36 @@ function renderSound(){
 }
 $('#sound').addEventListener('click', () => { Sound.set(!Sound.on); renderSound(); Sound.play('tap'); });
 document.addEventListener('click', e => { const b = e.target.closest('[data-sfx]'); if (b) Sound.play(b.dataset.sfx); });
-document.addEventListener('click', e => {
-  if (e.target.closest('#share-x')) track('result_shared_x', {result_type: current?.key});
-  if (e.target.closest('#share-wa')) track('result_shared_whatsapp', {result_type: current?.key});
-});
+// wa.me and tweet-intent links can only carry text, so the card goes through the share sheet (phones)
+// or the clipboard (desktop) before the chat opens.
+async function shareCard(e, where){
+  const link = e.currentTarget.href;
+  track(where === 'x' ? 'result_shared_x' : 'result_shared_whatsapp', {result_type: current?.key});
+  if (!cardFile) return;
+  e.preventDefault();
+  if (navigator.canShare && navigator.canShare({files:[cardFile]})){
+    try { await navigator.share({files:[cardFile], text: shareText(current)}); return; }
+    catch(err){ if (err && err.name === 'AbortError') return; }
+  }
+  let copied = false;
+  try {
+    if (navigator.clipboard && window.ClipboardItem){
+      await navigator.clipboard.write([new ClipboardItem({'image/png': cardFile})]);
+      copied = true;
+    }
+  } catch(err){}
+  if (!copied){
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(cardFile); a.download = cardFile.name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }
+  const app = where === 'x' ? 'X' : 'WhatsApp';
+  toast(copied ? `Card copied. Paste it (Ctrl+V) into ${app} before you send.` : `Card downloaded. Attach it in ${app} before you send.`);
+  if (!window.open(link, '_blank', 'noopener')) location.href = link;
+}
+$('#share-wa').addEventListener('click', e => shareCard(e, 'wa'));
+$('#share-x').addEventListener('click', e => shareCard(e, 'x'));
 renderSound();
 buildStatic();
 (function boot(){
